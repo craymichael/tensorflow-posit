@@ -604,6 +604,7 @@ cc_library(
         "platform/types.h",
         "platform/windows/cpu_info.h",
         "lib/bfloat16/bfloat16.h",
+        "lib/posit16/posit16.h",
     ] + tf_additional_proto_hdrs(),
     copts = tf_copts(),
     deps = tf_lib_proto_parsing_deps() + [
@@ -620,6 +621,7 @@ cc_library(
     name = "lib",
     hdrs = [
         "lib/bfloat16/bfloat16.h",
+        "lib/posit16/posit16.h",
         "lib/core/arena.h",
         "lib/core/bitmap.h",
         "lib/core/bits.h",
@@ -782,6 +784,7 @@ tf_cuda_library(
         "framework/allocator_registry.h",
         "framework/attr_value_util.h",
         "framework/bfloat16.h",
+        "framework/posit16.h",
         "framework/cancellation.h",
         "framework/collective.h",
         "framework/common_shape_fns.h",
@@ -954,6 +957,7 @@ cc_library(
         "framework/tensor_types.h",
         "framework/type_traits.h",
         "lib/bfloat16/bfloat16.h",
+        "lib/posit16/posit16.h",
         "platform/byte_order.h",
         "platform/default/dynamic_annotations.h",
         "platform/default/integral_types.h",
@@ -2152,6 +2156,7 @@ cc_library(
     srcs = ["lib/png/png_io.cc"],
     hdrs = [
         "lib/bfloat16/bfloat16.h",
+        "lib/posit16/posit16.h",
         "lib/core/casts.h",
         "lib/core/stringpiece.h",
         "lib/png/png_io.h",
@@ -2185,6 +2190,7 @@ cc_library(
     srcs = [],
     hdrs = [
         "lib/bfloat16/bfloat16.h",
+        "lib/posit16/posit16.h",
         "platform/default/integral_types.h",
         "platform/default/logging.h",
         "platform/logging.h",
@@ -2208,6 +2214,7 @@ cc_library(
     ]),
     hdrs = [
         "lib/bfloat16/bfloat16.h",
+        "lib/posit16/posit16.h",
         "lib/core/stringpiece.h",
         "lib/jpeg/jpeg_handle.h",
         "lib/jpeg/jpeg_mem.h",
@@ -2236,6 +2243,7 @@ cc_library(
     ]),
     hdrs = [
         "lib/bfloat16/bfloat16.h",
+        "lib/posit16/posit16.h",
         "lib/core/stringpiece.h",
         "lib/gif/gif_io.h",
         "lib/gtl/cleanup.h",
@@ -2264,6 +2272,7 @@ cc_library(
     ]),
     hdrs = [
         "lib/bfloat16/bfloat16.h",
+        "lib/posit16/posit16.h",
         "lib/core/casts.h",
         "lib/core/stringpiece.h",
         "lib/png/png_io.h",
@@ -3443,6 +3452,7 @@ tf_cc_tests(
         "framework/allocator_test.cc",
         "framework/attr_value_util_test.cc",
         "framework/bfloat16_test.cc",
+        "framework/posit16_test.cc",
         "framework/cancellation_test.cc",
         "framework/common_shape_fns_test.cc",
         "framework/device_base_test.cc",
