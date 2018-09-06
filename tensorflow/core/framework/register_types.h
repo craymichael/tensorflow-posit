@@ -86,6 +86,8 @@ limitations under the License.
 #define TF_CALL_complex128(m) m(::tensorflow::complex128)
 #define TF_CALL_half(m) m(Eigen::half)
 
+#define TF_CALL_posit16(m) m(::tensorflow::posit16)
+
 #elif defined(__ANDROID_TYPES_FULL__)
 
 // Only string, half, float, int32, int64, bool, and quantized types
@@ -117,6 +119,8 @@ limitations under the License.
 #define TF_CALL_complex128(m)
 #define TF_CALL_half(m) m(Eigen::half)
 
+#define TF_CALL_posit16(m)
+
 #else  // defined(IS_MOBILE_PLATFORM) && !defined(__ANDROID_TYPES_FULL__)
 
 // Only float, int32, and bool are supported.
@@ -147,6 +151,8 @@ limitations under the License.
 #define TF_CALL_complex128(m)
 #define TF_CALL_half(m)
 
+#define TF_CALL_posit16(m)
+
 #endif  // defined(IS_MOBILE_PLATFORM)  - end of TF_CALL_type defines
 
 // Defines for sets of types.
@@ -157,15 +163,22 @@ limitations under the License.
 
 #define TF_CALL_REAL_NUMBER_TYPES(m) \
   TF_CALL_INTEGRAL_TYPES(m)          \
+  TF_CALL_posit16(m)                 \
   TF_CALL_half(m) TF_CALL_bfloat16(m) TF_CALL_float(m) TF_CALL_double(m)
 
 #define TF_CALL_REAL_NUMBER_TYPES_NO_BFLOAT16(m) \
+  TF_CALL_posit16(m)                             \
   TF_CALL_INTEGRAL_TYPES(m) TF_CALL_half(m) TF_CALL_float(m) TF_CALL_double(m)
 
 #define TF_CALL_REAL_NUMBER_TYPES_NO_INT32(m)                              \
+  TF_CALL_posit16(m)                                                       \
   TF_CALL_half(m) TF_CALL_bfloat16(m) TF_CALL_float(m) TF_CALL_double(m)   \
       TF_CALL_int64(m) TF_CALL_uint16(m) TF_CALL_int16(m) TF_CALL_uint8(m) \
           TF_CALL_int8(m)
+
+#define TF_CALL_REAL_NUMBER_TYPES_NO_POSIT16(m)                            \
+  TF_CALL_INTEGRAL_TYPES(m)                                                \
+  TF_CALL_half(m) TF_CALL_bfloat16(m) TF_CALL_float(m) TF_CALL_double(m)
 
 // Call "m" for all number types, including complex64 and complex128.
 #define TF_CALL_NUMBER_TYPES(m) \
