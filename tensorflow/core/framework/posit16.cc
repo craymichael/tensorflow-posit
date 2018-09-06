@@ -13,11 +13,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "tensorflow/core/framework/bfloat16.h"
+#include "tensorflow/core/framework/posit16.h"
 
 namespace tensorflow {
 
-void FloatToBFloat16(const float* src, bfloat16* dst, int64 size) {
+void FloatToPosit16(const float* src, posit16* dst, int64 size) {
   const uint16_t* p = reinterpret_cast<const uint16_t*>(src);
   uint16_t* q = reinterpret_cast<uint16_t*>(dst);
 #if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
@@ -31,7 +31,7 @@ void FloatToBFloat16(const float* src, bfloat16* dst, int64 size) {
 #endif
 }
 
-void BFloat16ToFloat(const bfloat16* src, float* dst, int64 size) {
+void Posit16ToFloat(const posit16* src, float* dst, int64 size) {
   const uint16_t* p = reinterpret_cast<const uint16_t*>(src);
   uint16_t* q = reinterpret_cast<uint16_t*>(dst);
 #if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__

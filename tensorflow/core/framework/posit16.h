@@ -13,8 +13,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#ifndef TENSORFLOW_FRAMEWORK_BFLOAT16_H_
-#define TENSORFLOW_FRAMEWORK_BFLOAT16_H_
+#ifndef TENSORFLOW_FRAMEWORK_POSIT16_H_
+#define TENSORFLOW_FRAMEWORK_POSIT16_H_
 
 #include "tensorflow/core/framework/numeric_types.h"
 #include "tensorflow/core/platform/byte_order.h"
@@ -24,40 +24,17 @@ limitations under the License.
 #include "tensorflow/core/platform/windows/cpu_info.h"
 #endif
 
-// Compact 16-bit encoding of floating point numbers. This representation uses
-// 1 bit for the sign, 8 bits for the exponent and 7 bits for the mantissa.  It
-// is assumed that floats are in IEEE 754 format so the representation is just
-// bits 16-31 of a single precision float.
-//
-// NOTE: The IEEE floating point standard defines a float16 format that
-// is different than this format (it has fewer bits of exponent and more
-// bits of mantissa).  We don't use that format here because conversion
-// to/from 32-bit floats is more complex for that format, and the
-// conversion for this format is very simple.
-//
-// Because of the existing IEEE float16 type, we do not name our representation
-// "float16" but just use "uint16".
-//
-// <-----our 16bits float------->
-// s e e e e e e e e f f f f f f f f f f f f f f f f f f f f f f f
-// <------------------------------float-------------------------->
-// 3 3             2 2             1 1                           0
-// 1 0             3 2             5 4                           0
-//
-//
-// This type only supports conversion back and forth with float.
-//
 // This file must be compilable by nvcc.
 //
 // The type is defined in framework/numeric_types.h.
 
 namespace tensorflow {
 
-// Conversion routines between an array of float and bfloat16 of
+// Conversion routines between an array of float and posit16 of
 // "size".
-void FloatToBFloat16(const float* src, bfloat16* dst, int64 size);
-void BFloat16ToFloat(const bfloat16* src, float* dst, int64 size);
+void FloatToPosit16(const float* src, posit16* dst, int64 size);
+void Posit16ToFloat(const posit16* src, float* dst, int64 size);
 
 }  // namespace tensorflow
 
-#endif  // TENSORFLOW_FRAMEWORK_BFLOAT16_H_
+#endif  // TENSORFLOW_FRAMEWORK_POSIT16_H_
