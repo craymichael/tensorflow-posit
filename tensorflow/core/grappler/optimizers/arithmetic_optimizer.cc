@@ -2575,6 +2575,9 @@ class ConvertLog1pStage : public ArithmeticOptimizerStage {
       case DT_BFLOAT16:
         *element = complex128(t.flat<bfloat16>()(i));
         return true;
+      case DT_POSIT16:
+        *element = complex128(t.flat<posit16>()(i));
+        return true;
       case DT_HALF:
         *element = complex128(static_cast<double>(t.flat<Eigen::half>()(i)), 0);
         return true;
