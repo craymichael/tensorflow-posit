@@ -13,13 +13,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "tensorflow/core/lib/bfloat16/bfloat16.h"
+#include "tensorflow/core/lib/posit16/posit16.h"
 
 #include "third_party/eigen3/Eigen/Core"
 
 namespace tensorflow {
 
-B16_DEVICE_FUNC bfloat16::operator Eigen::half() const {
+P16_DEVICE_FUNC posit16::operator Eigen::half() const {
   return static_cast<Eigen::half>(float(*this));
 }
 }  // end namespace tensorflow
