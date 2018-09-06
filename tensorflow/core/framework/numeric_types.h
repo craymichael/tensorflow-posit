@@ -25,6 +25,7 @@ limitations under the License.
 // clang-format on
 
 #include "tensorflow/core/lib/bfloat16/bfloat16.h"
+#include "tensorflow/core/lib/posit16/posit16.h"
 #include "tensorflow/core/platform/types.h"
 
 namespace tensorflow {
@@ -55,6 +56,10 @@ static inline tensorflow::bfloat16 FloatToBFloat16(float float_val) {
         &(reinterpret_cast<uint16_t*>(&float_val)[1]));
 #endif
 }
+
+static inline tensorflow::posit16 FloatToPosit16(float float_val) {
+    return static_cast<tensorflow::posit16>(float_val);
+}
     
 namespace Eigen {
 // TODO(xpan): We probably need to overwrite more methods to have correct eigen
@@ -84,6 +89,30 @@ struct NumTraits<tensorflow::bfloat16>
   }
 };
 
+template <>
+struct NumTraits<tensorflow::posit16>
+    : GenericNumTraits<tensorflow::posit16> {
+  enum {
+    IsInteger = 0,
+    IsSigned = 1,
+    RequireInitialization = 0
+  };
+  static EIGEN_STRONG_INLINE tensorflow::posit16 highest() {
+    return tensorflow::posit16::highest();
+  }
+
+  static EIGEN_STRONG_INLINE tensorflow::posit16 lowest() {
+    return tensorflow::posit16::lowest();
+  }
+
+  static EIGEN_STRONG_INLINE tensorflow::posit16 infinity() {
+    return tensorflow::posit16::nar();
+  }
+
+  static EIGEN_STRONG_INLINE tensorflow::posit16 quiet_NaN() {
+    return tensorflow::posit16::nar();
+  }
+};
 
 using ::tensorflow::operator==;
 using ::tensorflow::operator!=;
@@ -97,15 +126,33 @@ EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::bfloat16 log(
 }
 
 template <>
+EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit16 log(
+    const tensorflow::posit16& x) {
+  return static_cast<tensorflow::posit16>(::logf(static_cast<float>(x)));
+}
+
+template <>
 EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::bfloat16 exp(
     const tensorflow::bfloat16& x) {
   return static_cast<tensorflow::bfloat16>(::expf(static_cast<float>(x)));
 }
 
 template <>
+EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit16 exp(
+    const tensorflow::posit16& x) {
+  return static_cast<tensorflow::posit16>(::expf(static_cast<float>(x)));
+}
+
+template <>
 EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::bfloat16 abs(
     const tensorflow::bfloat16& x) {
   return static_cast<tensorflow::bfloat16>(::fabsf(static_cast<float>(x)));
+}
+
+template <>
+EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit16 abs(
+    const tensorflow::posit16& x) {
+  return static_cast<tensorflow::posit16>(::fabsf(static_cast<float>(x)));
 }
 
 }  // namespace numext
