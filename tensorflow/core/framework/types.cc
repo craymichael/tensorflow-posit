@@ -92,6 +92,8 @@ string DataTypeStringInternal(DataType dtype) {
       return "qint32";
     case DT_BFLOAT16:
       return "bfloat16";
+    case DT_POSIT16:
+      return "posit16";
     case DT_HALF:
       return "half";
     case DT_RESOURCE:
@@ -184,6 +186,9 @@ bool DataTypeFromString(StringPiece sp, DataType* dt) {
     return true;
   } else if (sp == "bfloat16") {
     *dt = DT_BFLOAT16;
+    return true;
+  } else if (sp == "posit16") {
+    *dt = DT_POSIT16;
     return true;
   } else if (sp == "half" || sp == "float16") {
     *dt = DT_HALF;
