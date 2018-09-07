@@ -108,6 +108,8 @@ Status CpuCastOp::Prepare() {
     work_ = GetCpuCastFromComplex128(dst_dtype_);
   } else if (src_dtype_ == DT_BFLOAT16) {
     work_ = GetCpuCastFromBfloat(dst_dtype_);
+  } else if (src_dtype_ == DT_POSIT16) {
+    work_ = GetCpuCastFromPosit16(dst_dtype_);
   }
 
   // TODO(sesse): If CPU casting to or from Eigen::half ever becomes a
@@ -157,6 +159,8 @@ class GpuCastOp : public CastOpBase {
       work_ = GetGpuCastFromComplex128(dst_dtype_);
     } else if (src_dtype_ == DT_BFLOAT16) {
       work_ = GetGpuCastFromBfloat(dst_dtype_);
+    } else if (src_dtype_ == DT_POSIT16) {
+      work_ = GetGpuCastFromPosit16(dst_dtype_);
     }
 
     return work_ == nullptr ? Unimplemented() : Status::OK();
@@ -189,7 +193,9 @@ CURRY_TYPES2(REGISTER_CAST_GPU, double);
 CURRY_TYPES2(REGISTER_CAST_GPU, std::complex<float>);
 CURRY_TYPES2(REGISTER_CAST_GPU, std::complex<double>);
 REGISTER_CAST_GPU(float, bfloat16);
+REGISTER_CAST_GPU(float, posit16);
 REGISTER_CAST_GPU(bfloat16, float);
+REGISTER_CAST_GPU(posit16, float);
 
 #undef REGISTER_CAST_GPU
 #endif  // GOOGLE_CUDA

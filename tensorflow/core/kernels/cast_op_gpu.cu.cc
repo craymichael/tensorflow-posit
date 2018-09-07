@@ -18,6 +18,7 @@ limitations under the License.
 #define EIGEN_USE_GPU
 
 #include "tensorflow/core/framework/bfloat16.h"
+#include "tensorflow/core/framework/posit16.h"
 #include "tensorflow/core/kernels/cast_op.h"
 
 namespace tensorflow {
@@ -61,7 +62,9 @@ DEFINE_ALL_FROM(double);
 DEFINE_ALL_FROM(std::complex<float>);
 DEFINE_ALL_FROM(std::complex<double>);
 DEFINE(bfloat16, float);
+DEFINE(posit16, float);
 DEFINE(float, bfloat16);
+DEFINE(float, posit16);
 
 #undef DEFINE_ALL_FROM
 #undef DEFINE
