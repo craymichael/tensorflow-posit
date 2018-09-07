@@ -25,6 +25,8 @@ from tensorflow.python.util.tf_export import tf_export
 
 _np_bfloat16 = pywrap_tensorflow.TF_bfloat16_type()
 
+_np_posit16 = pywrap_tensorflow.TF_posit16_type()
+
 
 @tf_export("DType")
 class DType(object):
@@ -148,6 +150,7 @@ class DType(object):
     """Returns whether this is a (non-quantized, real) floating point type."""
     return ((self.is_numpy_compatible and
              np.issubdtype(self.as_numpy_dtype, np.floating)) or
+            self.base_dtype == posit16 or
             self.base_dtype == bfloat16)
 
   @property
@@ -197,6 +200,9 @@ class DType(object):
       except:
         if self.base_dtype == bfloat16:
           return _np_bfloat16(float.fromhex("-0x1.FEp127"))
+        elif self.base_dtype == posit16:
+          # FIXME: posit
+          return _np_posit16(0x0001)
         raise TypeError("Cannot find minimum value of %s." % self)
 
   @property
@@ -221,6 +227,9 @@ class DType(object):
       except:
         if self.base_dtype == bfloat16:
           return _np_bfloat16(float.fromhex("0x1.FEp127"))
+        elif self.base_dtype == posit16:
+          # FIXME: posit
+          return _np_posit16(0x7FFF)
         raise TypeError("Cannot find maximum value of %s." % self)
 
   @property
@@ -373,6 +382,8 @@ resource_ref = DType(types_pb2.DT_RESOURCE_REF)
 variant_ref = DType(types_pb2.DT_VARIANT_REF)
 bfloat16 = DType(types_pb2.DT_BFLOAT16)
 tf_export("bfloat16").export_constant(__name__, "bfloat16")
+posit16 = DType(types_pb2.DT_POSIT16)
+tf_export("posit16").export_constant(__name__, "posit16")
 float16_ref = DType(types_pb2.DT_HALF_REF)
 half_ref = float16_ref
 float32_ref = DType(types_pb2.DT_FLOAT_REF)
@@ -396,6 +407,7 @@ qint16_ref = DType(types_pb2.DT_QINT16_REF)
 quint16_ref = DType(types_pb2.DT_QUINT16_REF)
 qint32_ref = DType(types_pb2.DT_QINT32_REF)
 bfloat16_ref = DType(types_pb2.DT_BFLOAT16_REF)
+posit16_ref = DType(types_pb2.DT_POSIT16_REF)
 
 _NUMPY_INCOMPATIBLE = frozenset([
     types_pb2.DT_VARIANT, types_pb2.DT_VARIANT_REF, types_pb2.DT_RESOURCE,
@@ -426,6 +438,7 @@ _INTERN_TABLE = {
     types_pb2.DT_QUINT16: quint16,
     types_pb2.DT_QINT32: qint32,
     types_pb2.DT_BFLOAT16: bfloat16,
+    types_pb2.DT_POSIT16: posit16,
     types_pb2.DT_RESOURCE: resource,
     types_pb2.DT_VARIANT: variant,
     types_pb2.DT_HALF_REF: float16_ref,
@@ -449,6 +462,7 @@ _INTERN_TABLE = {
     types_pb2.DT_QUINT16_REF: quint16_ref,
     types_pb2.DT_QINT32_REF: qint32_ref,
     types_pb2.DT_BFLOAT16_REF: bfloat16_ref,
+    types_pb2.DT_POSIT16_REF: posit16_ref,
     types_pb2.DT_RESOURCE_REF: resource_ref,
     types_pb2.DT_VARIANT_REF: variant_ref,
 }
@@ -476,6 +490,7 @@ _TYPE_TO_STRING = {
     types_pb2.DT_QUINT16: "quint16",
     types_pb2.DT_QINT32: "qint32",
     types_pb2.DT_BFLOAT16: "bfloat16",
+    types_pb2.DT_POSIT16: "posit16",
     types_pb2.DT_RESOURCE: "resource",
     types_pb2.DT_VARIANT: "variant",
     types_pb2.DT_HALF_REF: "float16_ref",
@@ -499,6 +514,7 @@ _TYPE_TO_STRING = {
     types_pb2.DT_QUINT16_REF: "quint16_ref",
     types_pb2.DT_QINT32_REF: "qint32_ref",
     types_pb2.DT_BFLOAT16_REF: "bfloat16_ref",
+    types_pb2.DT_POSIT16_REF: "posit16_ref",
     types_pb2.DT_RESOURCE_REF: "resource_ref",
     types_pb2.DT_VARIANT_REF: "variant_ref",
 }
@@ -554,6 +570,7 @@ _NP_TO_TF = frozenset([
     (_np_quint16, quint16),
     (_np_qint32, qint32),
     (_np_bfloat16, bfloat16),
+    (_np_posit16, posit16),
 ])
 _TF_TO_NP = {
     types_pb2.DT_HALF:
@@ -600,6 +617,8 @@ _TF_TO_NP = {
         _np_qint32,
     types_pb2.DT_BFLOAT16:
         _np_bfloat16,
+    types_pb2.DT_POSIT16:
+        _np_posit16,
 
     # Ref types
     types_pb2.DT_HALF_REF:
@@ -644,6 +663,8 @@ _TF_TO_NP = {
         _np_qint32,
     types_pb2.DT_BFLOAT16_REF:
         _np_bfloat16,
+    types_pb2.DT_POSIT16_REF:
+        _np_posit16,
 }
 
 _QUANTIZED_DTYPES_NO_REF = frozenset([qint8, quint8, qint16, quint16, qint32])
