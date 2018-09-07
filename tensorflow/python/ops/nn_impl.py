@@ -893,7 +893,7 @@ def fused_batch_norm(
   # TODO(reedwm): In a few weeks, switch to using the V2 version exclusively. We
   # currently only use the V2 version for float16 inputs, which is not supported
   # by the V1 version.
-  if x.dtype == dtypes.float16 or x.dtype == dtypes.bfloat16:
+  if x.dtype == dtypes.float16 or x.dtype == dtypes.bfloat16 or x.dtype == dtypes.posit16:
     fused_batch_norm_func = gen_nn_ops.fused_batch_norm_v2
   else:
     fused_batch_norm_func = gen_nn_ops._fused_batch_norm  # pylint: disable=protected-access

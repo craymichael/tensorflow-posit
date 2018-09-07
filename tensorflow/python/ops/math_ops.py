@@ -790,6 +790,23 @@ def to_bfloat16(x, name="ToBFloat16"):
   return cast(x, dtypes.bfloat16, name=name)
 
 
+@tf_export("to_posit16")
+def to_posit16(x, name="ToPosit16"):
+  """Casts a tensor to type `posit16`.
+
+  Args:
+    x: A `Tensor` or `SparseTensor`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` or `SparseTensor` with same shape as `x` with type `posit16`.
+
+  Raises:
+    TypeError: If `x` cannot be cast to the `posit16`.
+  """
+  return cast(x, dtypes.posit16, name=name)
+
+
 @tf_export("to_complex64")
 def to_complex64(x, name="ToComplex64"):
   """Casts a tensor to type `complex64`.
@@ -906,6 +923,7 @@ _TRUEDIV_TABLE = {
     dtypes.int32: dtypes.float64,
     dtypes.int64: dtypes.float64,
     dtypes.bfloat16: None,
+    dtypes.posit16: None,
     dtypes.float16: None,
     dtypes.float32: None,
     dtypes.float64: None,
@@ -1991,12 +2009,15 @@ def matmul(a,
 
     use_sparse_matmul = False
     if a_is_sparse or b_is_sparse:
-      sparse_matmul_types = [dtypes.bfloat16, dtypes.float32]
+      sparse_matmul_types = [dtypes.posit16, dtypes.bfloat16, dtypes.float32]
       use_sparse_matmul = (
           a.dtype in sparse_matmul_types and b.dtype in sparse_matmul_types)
     if ((a.dtype == dtypes.bfloat16 or b.dtype == dtypes.bfloat16) and
         a.dtype != b.dtype):
       # matmul currently doesn't handle mixed-precision inputs.
+      use_sparse_matmul = True
+    if ((a.dtype == dtypes.posit16 or b.dtype == dtypes.posit16) and
+        a.dtype != b.dtype):
       use_sparse_matmul = True
     if use_sparse_matmul:
       ret = sparse_matmul(
@@ -2012,6 +2033,8 @@ def matmul(a,
       # casting to bfloat16 also matches non-sparse matmul behavior better.
       if a.dtype == dtypes.bfloat16 and b.dtype == dtypes.bfloat16:
         ret = cast(ret, dtypes.bfloat16)
+      if a.dtype == dtypes.posit16 and b.dtype == dtypes.posit16:
+        ret = cast(ret, dtypes.posit16)
       return ret
     else:
       return gen_math_ops.mat_mul(
