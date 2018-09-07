@@ -161,6 +161,7 @@ struct posit16 {
   // Converts a float point to posit16, with round-nearest-to-even as rounding
   // method.
   P16_DEVICE_FUNC static posit16 round_to_posit16(float v) {
+    uint32_t input;
     FP32 f;
     f.f = v;
     input = f.u;
@@ -185,6 +186,12 @@ struct posit16 {
   static posit16 lowest() {
     posit16 x;
     x.value = 0x0001;
+    return x;
+  }
+
+  static posit16 nar() {
+    posit16 x;
+    x.value = 0x8000;
     return x;
   }
 
