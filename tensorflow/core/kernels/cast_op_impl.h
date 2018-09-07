@@ -54,6 +54,7 @@ CAST_FUNCTORS(Eigen::SyclDevice);
 
 #define CURRY_TYPES3(FN, arg0, arg1)   \
   CURRY_TYPES3_NO_BF16(FN, arg0, arg1) \
+  FN(arg0, arg1, posit16) \
   FN(arg0, arg1, bfloat16);
 
 #define CAST_CASE(DEVICE, IN, OUT)                                        \
@@ -99,6 +100,9 @@ CastFunctorType GetCpuCastFromComplex128(DataType dst_dtype);
 
 CastFunctorType GetCpuCastFromBfloat(DataType dst_dtype);
 
+std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
+GetCpuCastFromPosit16(DataType dst_dtype);
+
 #if GOOGLE_CUDA
 // Same, for GPU.
 CastFunctorType GetGpuCastFromBool(DataType dst_dtype);
@@ -130,6 +134,9 @@ CastFunctorType GetGpuCastFromComplex64(DataType dst_dtype);
 CastFunctorType GetGpuCastFromComplex128(DataType dst_dtype);
 
 CastFunctorType GetGpuCastFromBfloat(DataType dst_dtype);
+
+std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
+GetGpuCastFromPosit16(DataType dst_dtype);
 
 #endif  // GOOGLE_CUDA
 
