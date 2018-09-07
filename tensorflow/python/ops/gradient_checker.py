@@ -163,6 +163,8 @@ def _compute_numeric_jacobian(x, x_shape, x_data, y, y_shape, delta,
   if x_data.dtype == dtypes.bfloat16.as_numpy_dtype:
     x_data = x_data.astype(np.float32)
 
+  # FIXME: posit: posit16 precision is good for this?
+
   # To compute the jacobian, we treat x and y as one-dimensional vectors
   x_size = _product(x_shape) * (2 if x.dtype.is_complex else 1)
   y_size = _product(y_shape) * (2 if y.dtype.is_complex else 1)
@@ -217,7 +219,8 @@ def _compute_gradient(x,
                       extra_feed_dict=None):
   """Computes the theoretical and numerical jacobian."""
   t = dtypes.as_dtype(x.dtype)
-  allowed_types = [dtypes.float16, dtypes.bfloat16, dtypes.float32,
+  allowed_types = [dtypes.posit16,
+                   dtypes.float16, dtypes.bfloat16, dtypes.float32,
                    dtypes.float64, dtypes.complex64, dtypes.complex128]
   assert t.base_dtype in allowed_types, "Don't support type %s for x" % t.name
   t2 = dtypes.as_dtype(y.dtype)
