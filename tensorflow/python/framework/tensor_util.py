@@ -62,6 +62,11 @@ def ExtractBitsFromBFloat16(x):
       np.asarray(x, dtype=dtypes.bfloat16.as_numpy_dtype).view(np.uint16))
 
 
+def ExtractBitsFromPosit16(x):
+  return np.asscalar(
+      np.asarray(x, dtype=dtypes.posit16.as_numpy_dtype).view(np.uint16))
+
+
 def SlowAppendBFloat16ArrayToTensorProto(tensor_proto, proto_values):
   tensor_proto.half_val.extend(
       [ExtractBitsFromBFloat16(x) for x in proto_values])
@@ -73,10 +78,23 @@ def FastAppendBFloat16ArrayToTensorProto(tensor_proto, proto_values):
           proto_values, dtype=dtypes.bfloat16.as_numpy_dtype).view(np.uint16))
 
 
+def SlowAppendPosit16ArrayToTensorProto(tensor_proto, proto_values):
+  tensor_proto.half_val.extend(
+      [ExtractBitsFromPosit16(x) for x in proto_values])
+
+
+def FastAppendPosit16ArrayToTensorProto(tensor_proto, proto_values):
+  fast_tensor_util.AppendPosit16ArrayToTensorProto(
+      tensor_proto, np.asarray(
+          proto_values, dtype=dtypes.posit16.as_numpy_dtype).view(np.uint16))
+
+
 if _FAST_TENSOR_UTIL_AVAILABLE:
   _NP_TO_APPEND_FN = {
       dtypes.bfloat16.as_numpy_dtype:
           FastAppendBFloat16ArrayToTensorProto,
+      dtypes.posit16.as_numpy_dtype:
+          FastAppendPosit16ArrayToTensorProto,
       np.float16:
           _MediumAppendFloat16ArrayToTensorProto,
       np.float32:
@@ -158,6 +176,7 @@ else:
 
   _NP_TO_APPEND_FN = {
       dtypes.bfloat16.as_numpy_dtype: SlowAppendBFloat16ArrayToTensorProto,
+      dtypes.posit16.as_numpy_dtype: SlowAppendPosit16ArrayToTensorProto,
       np.float16: SlowAppendFloat16ArrayToTensorProto,
       np.float32: SlowAppendFloat32ArrayToTensorProto,
       np.float64: SlowAppendFloat64ArrayToTensorProto,
@@ -568,7 +587,7 @@ def MakeNdarray(tensor):
   if tensor.tensor_content:
     return (np.frombuffer(tensor.tensor_content, dtype=dtype).copy()
             .reshape(shape))
-  elif tensor_dtype == dtypes.float16 or tensor_dtype == dtypes.bfloat16:
+  elif tensor_dtype == dtypes.float16 or tensor_dtype == dtypes.bfloat16 or tensor_dtype == dtypes.posit16:
     # the half_val field of the TensorProto stores the binary representation
     # of the fp16: we need to reinterpret this as a proper float16
     if len(tensor.half_val) == 1:
