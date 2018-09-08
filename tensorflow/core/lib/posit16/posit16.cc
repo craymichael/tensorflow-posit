@@ -77,3 +77,15 @@ P16_DEVICE_FUNC posit16 operator/(posit16 a, posit16 b) {
   return c;
 }
 }  // end namespace tensorflow
+
+namespace std {
+using tensorflow::posit16;
+
+posit16 sqrt(const posit16& a) {
+  posit16_t pa = { .v=a.value };
+  posit16_t pr = p16_sqrt(pa);
+  posit16 r;
+  r.value = pr.v;
+  return r;
+}
+}  // namespace std
