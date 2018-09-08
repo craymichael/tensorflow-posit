@@ -220,11 +220,15 @@ P16_DEVICE_FUNC inline posit16& operator-=(posit16& a, posit16 b) {
   return a;
 }
 P16_DEVICE_FUNC inline posit16 operator++(posit16& a) {
-  a += posit16(1);
+  posit16 one;
+  one.value = posit16::ONE_VALUE;
+  a += one;
   return a;
 }
 P16_DEVICE_FUNC inline posit16 operator--(posit16& a) {
-  a -= posit16(1);
+  posit16 one;
+  one.value = posit16::ONE_VALUE;
+  a -= one;
   return a;
 }
 P16_DEVICE_FUNC inline posit16 operator++(posit16& a, int) {
