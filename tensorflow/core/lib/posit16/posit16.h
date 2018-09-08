@@ -165,6 +165,8 @@ struct posit16 {
 
   // A value that represents "not a real".
   static const uint16_t NAR_VALUE = 0x8000;
+  static const uint16_t ONE_VALUE = 0x4000;
+  static const uint16_t ZERO_VALUE = 0x0000;
 };
 
 P16_DEVICE_FUNC inline std::ostream& operator<<(std::ostream& os,
