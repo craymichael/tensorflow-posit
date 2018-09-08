@@ -825,6 +825,17 @@ def tf_workspace(path_prefix="", tf_repo_name=""):
       strip_prefix = "rules_android-0.1.1",
   )
 
+  tf_http_archive(
+      name = "softposit",
+      sha256 = "6e0b7f164d8308be82a0a0d0a4bf7739e2bb5213694160c6f9e4e4f58418bebd",
+      urls = [
+          "https://storage.googleapis.com/posit-speedgo/softposit-0.4.1rc.tgz",
+          "https://s3-ap-southeast-1.amazonaws.com/posit-speedgo/softposit-0.4.1rc.tgz",
+      ],
+      build_file = clean_dep("//third_party:softposit.BUILD"),
+      strip_prefix = "softposit-0.4.1rc",
+  )
+
   ##############################################################################
   # BIND DEFINITIONS
   #
