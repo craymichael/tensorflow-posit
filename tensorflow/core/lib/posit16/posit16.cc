@@ -30,6 +30,16 @@ P16_DEVICE_FUNC posit16::posit16(const double val) {
   this->value = p.v;
 }
 
+P16_DEVICE_FUNC posit16::operator float() const {
+  posit16_t p = { .v=this->value };
+  return static_cast<float>(convertP16ToDouble(p));
+}
+
+P16_DEVICE_FUNC posit16::operator double() const {
+  posit16_t p = { .v=this->value };
+  return convertP16ToDouble(p);
+}
+
 P16_DEVICE_FUNC posit16::operator Eigen::half() const {
   return static_cast<Eigen::half>(float(*this));
 }

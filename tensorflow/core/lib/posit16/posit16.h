@@ -75,13 +75,7 @@ struct posit16 {
   P16_DEVICE_FUNC explicit posit16(const T& val)
       : posit16(static_cast<float>(val)) {}
 
-  P16_DEVICE_FUNC explicit operator float() const {
-    float result = 0;
-
-    // FIXME: posit: convertP16ToDouble
-    result = value;
-    return result;
-  }
+  P16_DEVICE_FUNC explicit operator float() const;
 
   P16_DEVICE_FUNC explicit operator bool() const {
     return static_cast<bool>(float(*this));
@@ -133,9 +127,7 @@ struct posit16 {
     return static_cast<long long>(float(*this));
   }
 
-  P16_DEVICE_FUNC explicit operator double() const {
-    return static_cast<double>(float(*this));
-  }
+  P16_DEVICE_FUNC explicit operator double() const;
 
   P16_DEVICE_FUNC explicit operator complex64() const {
     return complex64(float(*this), float(0.0));
