@@ -260,18 +260,16 @@ struct hash<tensorflow::posit16> {
 };
 
 using tensorflow::posit16;
-inline bool isinf(const posit16& a) { return std::isinf(float(a)); }
-inline bool isnan(const posit16& a) { return std::isnan(float(a)); }
-inline bool isfinite(const posit16& a) { return std::isfinite(float(a)); }
-inline posit16 abs(const posit16& a) { return posit16(std::abs(float(a))); }
+inline bool isinf(const posit16& a) { return a.value == posit16::NAR_VALUE; }
+inline bool isnan(const posit16& a) { return a.value == posit16::NAR_VALUE; }
+inline bool isfinite(const posit16& a) { return a.value != posit16::NAR_VALUE; }
+inline posit16 abs(const posit16& a) { posit16 r; r.value = (a.value <= 0x7FFF) ? a.value : -a.value; return r; }
 inline posit16 exp(const posit16& a) { return posit16(std::exp(float(a))); }
 inline posit16 log(const posit16& a) { return posit16(std::log(float(a))); }
 inline posit16 log10(const posit16& a) {
   return posit16(std::log10(float(a)));
 }
-inline posit16 sqrt(const posit16& a) {
-  return posit16(std::sqrt(float(a)));
-}
+posit16 sqrt(const posit16& a);
 inline posit16 pow(const posit16& a, const posit16& b) {
   return posit16(std::pow(float(a), float(b)));
 }
