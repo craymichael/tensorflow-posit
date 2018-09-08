@@ -863,6 +863,17 @@ def tf_workspace(path_prefix = "", tf_repo_name = ""):
         build_file = clean_dep("//third_party/ngraph:ngraph_tf.BUILD"),
     )
 
+    tf_http_archive(
+        name = "softposit",
+        urls = [
+            "https://storage.googleapis.com/posit-speedgo/softposit-0.4.1rc.tgz",
+            "https://s3-ap-southeast-1.amazonaws.com/posit-speedgo/softposit-0.4.1rc.tgz",
+        ],
+        sha256 = "6e0b7f164d8308be82a0a0d0a4bf7739e2bb5213694160c6f9e4e4f58418bebd",
+        strip_prefix = "softposit-0.4.1rc",
+        build_file = clean_dep("//third_party:softposit.BUILD"),
+    )
+
     ##############################################################################
     # BIND DEFINITIONS
     #
