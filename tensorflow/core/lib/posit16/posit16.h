@@ -137,24 +137,6 @@ struct posit16 {
     return complex128(double(*this), double(0.0));
   }
 
-  union FP32 {
-    unsigned int u;
-    float f;
-  };
-
-  // Converts a float point to posit16, with round-nearest-to-even as rounding
-  // method.
-  P16_DEVICE_FUNC static posit16 round_to_posit16(float v) {
-    uint32_t input;
-    FP32 f;
-    f.f = v;
-    input = f.u;
-    posit16 output;
-    // FIXME: posit: convertFloatToP16
-    output.value = v;
-    return output;
-  }
-
   static posit16 epsilon() {
     posit16 x;
     x.value = 0x0001;
