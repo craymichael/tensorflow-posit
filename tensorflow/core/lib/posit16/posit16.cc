@@ -16,8 +16,19 @@ limitations under the License.
 #include "tensorflow/core/lib/posit16/posit16.h"
 
 #include "third_party/eigen3/Eigen/Core"
+#include "softposit.h"
 
 namespace tensorflow {
+
+P16_DEVICE_FUNC posit16::posit16(const float val) {
+  posit16_t p = convertFloatToP16(val);
+  this->value = p.v;
+}
+
+P16_DEVICE_FUNC posit16::posit16(const double val) {
+  posit16_t p = convertDoubleToP16(val);
+  this->value = p.v;
+}
 
 P16_DEVICE_FUNC posit16::operator Eigen::half() const {
   return static_cast<Eigen::half>(float(*this));

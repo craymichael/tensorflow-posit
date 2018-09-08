@@ -678,6 +678,7 @@ cc_library(
     visibility = ["//visibility:public"],
     deps = [
         ":lib_internal",
+        "@softposit//:softposit",
     ],
 )
 
@@ -2094,6 +2095,7 @@ cc_library(
         "@zlib_archive//:zlib",
         "@double_conversion//:double-conversion",
         "@protobuf_archive//:protobuf",
+        "@softposit//:softposit",
     ] + tf_protos_all_impl() + tf_protos_grappler_impl(),
 )
 
