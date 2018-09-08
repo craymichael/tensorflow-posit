@@ -196,7 +196,7 @@ struct posit16 {
 
 P16_DEVICE_FUNC inline std::ostream& operator<<(std::ostream& os,
                                                 const posit16& dt) {
-  os << static_cast<float>(dt);
+  os << static_cast<double>(dt);
   return os;
 }
 
