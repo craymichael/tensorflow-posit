@@ -190,22 +190,26 @@ P16_DEVICE_FUNC inline posit16 operator-(posit16 a) {
   return a;
 }
 P16_DEVICE_FUNC inline bool operator<(posit16 a, posit16 b) {
-  return static_cast<float>(a) < static_cast<float>(b);
+  union { uint16_t u; int16_t i; } va = { .u=a.value };
+  union { uint16_t u; int16_t i; } vb = { .u=b.value };
+  return va.i < vb.i;
 }
 P16_DEVICE_FUNC inline bool operator<=(posit16 a, posit16 b) {
-  return static_cast<float>(a) <= static_cast<float>(b);
+  union { uint16_t u; int16_t i; } va = { .u=a.value };
+  union { uint16_t u; int16_t i; } vb = { .u=b.value };
+  return va.i <= vb.i;
 }
 P16_DEVICE_FUNC inline bool operator==(posit16 a, posit16 b) {
-  return static_cast<float>(a) == static_cast<float>(b);
+  return a.value == b.value;
 }
 P16_DEVICE_FUNC inline bool operator!=(posit16 a, posit16 b) {
-  return static_cast<float>(a) != static_cast<float>(b);
+  return !(a == b);
 }
 P16_DEVICE_FUNC inline bool operator>(posit16 a, posit16 b) {
-  return static_cast<float>(a) > static_cast<float>(b);
+  return b < a;
 }
 P16_DEVICE_FUNC inline bool operator>=(posit16 a, posit16 b) {
-  return static_cast<float>(a) >= static_cast<float>(b);
+  return b <= a;
 }
 P16_DEVICE_FUNC inline posit16& operator+=(posit16& a, posit16 b) {
   a = a + b;
