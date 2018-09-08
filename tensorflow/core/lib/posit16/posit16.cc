@@ -43,4 +43,37 @@ P16_DEVICE_FUNC posit16::operator double() const {
 P16_DEVICE_FUNC posit16::operator Eigen::half() const {
   return static_cast<Eigen::half>(float(*this));
 }
+
+P16_DEVICE_FUNC posit16 operator+(posit16 a, posit16 b) {
+  posit16_t pa = { .v=a.value };
+  posit16_t pb = { .v=b.value };
+  posit16_t pc = p16_add(pa, pb);
+  posit16 c;
+  c.value = pc.v;
+  return c;
+}
+P16_DEVICE_FUNC posit16 operator-(posit16 a, posit16 b) {
+  posit16_t pa = { .v=a.value };
+  posit16_t pb = { .v=b.value };
+  posit16_t pc = p16_sub(pa, pb);
+  posit16 c;
+  c.value = pc.v;
+  return c;
+}
+P16_DEVICE_FUNC posit16 operator*(posit16 a, posit16 b) {
+  posit16_t pa = { .v=a.value };
+  posit16_t pb = { .v=b.value };
+  posit16_t pc = p16_mul(pa, pb);
+  posit16 c;
+  c.value = pc.v;
+  return c;
+}
+P16_DEVICE_FUNC posit16 operator/(posit16 a, posit16 b) {
+  posit16_t pa = { .v=a.value };
+  posit16_t pb = { .v=b.value };
+  posit16_t pc = p16_div(pa, pb);
+  posit16 c;
+  c.value = pc.v;
+  return c;
+}
 }  // end namespace tensorflow

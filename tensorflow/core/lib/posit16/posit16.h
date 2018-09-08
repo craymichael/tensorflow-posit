@@ -173,24 +173,16 @@ P16_DEVICE_FUNC inline std::ostream& operator<<(std::ostream& os,
   return os;
 }
 
-P16_DEVICE_FUNC inline posit16 operator+(posit16 a, posit16 b) {
-  return posit16(static_cast<float>(a) + static_cast<float>(b));
-}
+P16_DEVICE_FUNC posit16 operator+(posit16 a, posit16 b);
 P16_DEVICE_FUNC inline posit16 operator+(posit16 a, int b) {
-  return posit16(static_cast<float>(a) + static_cast<float>(b));
+  return a + posit16(b);
 }
 P16_DEVICE_FUNC inline posit16 operator+(int a, posit16 b) {
-  return posit16(static_cast<float>(a) + static_cast<float>(b));
+  return posit16(a) + b;
 }
-P16_DEVICE_FUNC inline posit16 operator-(posit16 a, posit16 b) {
-  return posit16(static_cast<float>(a) - static_cast<float>(b));
-}
-P16_DEVICE_FUNC inline posit16 operator*(posit16 a, posit16 b) {
-  return posit16(static_cast<float>(a) * static_cast<float>(b));
-}
-P16_DEVICE_FUNC inline posit16 operator/(posit16 a, posit16 b) {
-  return posit16(static_cast<float>(a) / static_cast<float>(b));
-}
+P16_DEVICE_FUNC posit16 operator-(posit16 a, posit16 b);
+P16_DEVICE_FUNC posit16 operator*(posit16 a, posit16 b);
+P16_DEVICE_FUNC posit16 operator/(posit16 a, posit16 b);
 P16_DEVICE_FUNC inline posit16 operator-(posit16 a) {
   a.value = -a.value;
   return a;
