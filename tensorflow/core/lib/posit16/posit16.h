@@ -183,15 +183,6 @@ struct posit16 {
 
   // A value that represents "not a real".
   static const uint16_t NAR_VALUE = 0x8000;
-
- private:
-  P16_DEVICE_FUNC static bool float_isnan(const float& x) {
-#ifdef __CUDA_ARCH__
-    return ::isnan(x);
-#else
-    return std::isnan(x);
-#endif
-  }
 };
 
 P16_DEVICE_FUNC inline std::ostream& operator<<(std::ostream& os,
