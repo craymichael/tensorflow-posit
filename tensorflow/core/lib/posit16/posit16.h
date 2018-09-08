@@ -45,17 +45,9 @@ typedef std::complex<double> complex128;
 struct posit16 {
   P16_DEVICE_FUNC posit16() {}
 
-  P16_DEVICE_FUNC explicit posit16(const float v) {
-    if (float_isnan(v)) {
-      value = NAR_VALUE;
-      return;
-    }
-    // FIXME: posit: convertFloatToP16
-    value = v;
-  }
+  P16_DEVICE_FUNC explicit posit16(const float val);
+  P16_DEVICE_FUNC explicit posit16(const double val);
 
-  P16_DEVICE_FUNC explicit posit16(const double val)
-      : posit16(static_cast<float>(val)) {}
   // Following the convention of numpy, converting between complex and
   // float will lead to loss of imag value.
   P16_DEVICE_FUNC explicit posit16(const complex64& val)

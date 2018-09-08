@@ -699,6 +699,7 @@ cc_library(
         ":lib_internal",
         "@com_google_absl//absl/strings",
         "@com_google_absl//absl/types:optional",
+        "@softposit//:softposit",
     ],
 )
 
@@ -2127,6 +2128,7 @@ cc_library(
         "@zlib_archive//:zlib",
         "@double_conversion//:double-conversion",
         "@protobuf_archive//:protobuf",
+        "@softposit//:softposit",
     ] + tf_protos_all_impl() + tf_protos_grappler_impl(),
 )
 
