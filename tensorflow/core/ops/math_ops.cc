@@ -135,7 +135,7 @@ _HostCast requires its input and produces its output in host memory.
 REGISTER_OP("Abs")
     .Input("x: T")
     .Output("y: T")
-    .Attr("T: {bfloat16, half, float, double, int32, int64}")
+    .Attr("T: {posit16, bfloat16, half, float, double, int32, int64}")
     .SetShapeFn(shape_inference::UnchangedShape);
 
 REGISTER_OP("ComplexAbs")
@@ -150,27 +150,27 @@ REGISTER_OP("ComplexAbs")
   Input("x: T")                                                          \
       .Output("y: T")                                                    \
       .Attr(                                                             \
-          "T: {bfloat16, half, float, double, int32, int64, complex64, " \
+          "T: {posit16, bfloat16, half, float, double, int32, int64, complex64, " \
           "complex128}")                                                 \
       .SetShapeFn(shape_inference::UnchangedShape)
 
 #define UNARY_REAL()                              \
   Input("x: T")                                   \
       .Output("y: T")                             \
-      .Attr("T: {bfloat16, half, float, double}") \
+      .Attr("T: {posit16, bfloat16, half, float, double}") \
       .SetShapeFn(shape_inference::UnchangedShape)
 
 #define UNARY_COMPLEX()                                                  \
   Input("x: T")                                                          \
       .Output("y: T")                                                    \
-      .Attr("T: {bfloat16, half, float, double, complex64, complex128}") \
+      .Attr("T: {posit16, bfloat16, half, float, double, complex64, complex128}") \
       .SetShapeFn(shape_inference::UnchangedShape)
 
 #define UNARY_GRADIENT_COMPLEX()                                         \
   Input("y: T")                                                          \
       .Input("dy: T")                                                    \
       .Output("z: T")                                                    \
-      .Attr("T: {bfloat16, half, float, double, complex64, complex128}") \
+      .Attr("T: {posit16, bfloat16, half, float, double, complex64, complex128}") \
       .SetShapeFn(shape_inference::UnchangedShape)
 
 REGISTER_OP("Neg").UNARY();
