@@ -16,22 +16,22 @@ limitations under the License.
 #include "tensorflow/core/kernels/cwise_ops_common.h"
 
 namespace tensorflow {
-REGISTER5(UnaryOp, CPU, "Inv", functor::inverse, float, Eigen::half, double,
-          complex64, complex128);
+REGISTER6(UnaryOp, CPU, "Inv", functor::inverse, float, Eigen::half, double,
+          complex64, complex128, posit16);
 #if GOOGLE_CUDA
 REGISTER4(UnaryOp, GPU, "Inv", functor::inverse, float, Eigen::half, double,
           int64);
 #endif
 
-REGISTER5(SimpleBinaryOp, CPU, "InvGrad", functor::inverse_grad, float,
-          Eigen::half, double, complex64, complex128);
+REGISTER6(SimpleBinaryOp, CPU, "InvGrad", functor::inverse_grad, float,
+          Eigen::half, double, complex64, complex128, posit16);
 #if GOOGLE_CUDA
 REGISTER3(SimpleBinaryOp, GPU, "InvGrad", functor::inverse_grad, float,
           Eigen::half, double);
 #endif
 
-REGISTER5(UnaryOp, CPU, "Reciprocal", functor::inverse, float, Eigen::half,
-          double, complex64, complex128);
+REGISTER6(UnaryOp, CPU, "Reciprocal", functor::inverse, float, Eigen::half,
+          double, complex64, complex128, posit16);
 #if GOOGLE_CUDA
 REGISTER4(UnaryOp, GPU, "Reciprocal", functor::inverse, float, Eigen::half,
           double, int64);
@@ -40,8 +40,8 @@ REGISTER4(UnaryOp, GPU, "Reciprocal", functor::inverse, float, Eigen::half,
 REGISTER(UnaryOp, SYCL, "Reciprocal", functor::inverse, float);
 #endif  // TENSORFLOW_USE_SYCL
 
-REGISTER5(SimpleBinaryOp, CPU, "ReciprocalGrad", functor::inverse_grad, float,
-          Eigen::half, double, complex64, complex128);
+REGISTER6(SimpleBinaryOp, CPU, "ReciprocalGrad", functor::inverse_grad, float,
+          Eigen::half, double, complex64, complex128, posit16);
 #if GOOGLE_CUDA
 REGISTER3(SimpleBinaryOp, GPU, "ReciprocalGrad", functor::inverse_grad, float,
           Eigen::half, double);

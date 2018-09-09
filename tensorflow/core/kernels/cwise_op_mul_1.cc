@@ -17,8 +17,8 @@ limitations under the License.
 
 namespace tensorflow {
 
-REGISTER6(BinaryOp, CPU, "Mul", functor::mul, float, Eigen::half, double, uint8,
-          int32, bfloat16);
+REGISTER7(BinaryOp, CPU, "Mul", functor::mul, float, Eigen::half, double, uint8,
+          int32, bfloat16, posit16);
 #if defined(__ANDROID_TYPES_SLIM__)
 // We only register the first type when we have multi-argument calls in the
 // case where we're trying to reduce executable size, but it turns out that the

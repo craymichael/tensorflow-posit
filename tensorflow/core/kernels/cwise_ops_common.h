@@ -22,6 +22,8 @@ limitations under the License.
 
 #include "tensorflow/core/lib/bfloat16/bfloat16.h"
 
+#include "tensorflow/core/lib/posit16/posit16.h"
+
 #ifdef TENSORFLOW_USE_SYCL
 #include "tensorflow/core/kernels/cwise_ops_sycl_common.h"
 #endif
