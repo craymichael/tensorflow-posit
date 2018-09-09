@@ -17,6 +17,7 @@ limitations under the License.
 
 #include "third_party/eigen3/Eigen/Core"
 #include "softposit.h"
+#include <cmath>
 #include <ostream>
 
 namespace tensorflow {
@@ -88,11 +89,51 @@ P16_DEVICE_FUNC posit16 operator/(posit16 a, posit16 b) {
 namespace std {
 using tensorflow::posit16;
 
+posit16 exp(const posit16& a) {
+  return posit16(std::exp(float(a)));
+}
+
+posit16 log(const posit16& a) {
+  return posit16(std::log(float(a)));
+}
+
+posit16 log10(const posit16& a) {
+  return posit16(std::log10(float(a)));
+}
+
 posit16 sqrt(const posit16& a) {
   posit16_t pa = { .v=a.value };
   posit16_t pr = p16_sqrt(pa);
   posit16 r;
   r.value = pr.v;
   return r;
+}
+
+posit16 pow(const posit16& a, const posit16& b) {
+  return posit16(std::pow(float(a), float(b)));
+}
+
+posit16 sin(const posit16& a) {
+  return posit16(std::sin(float(a)));
+}
+
+posit16 cos(const posit16& a) {
+  return posit16(std::cos(float(a)));
+}
+
+posit16 tan(const posit16& a) {
+  return posit16(std::tan(float(a)));
+}
+
+posit16 tanh(const posit16& a) {
+  return posit16(std::tanh(float(a)));
+}
+
+posit16 floor(const posit16& a) {
+  return posit16(std::floor(float(a)));
+}
+
+posit16 ceil(const posit16& a) {
+  return posit16(std::ceil(float(a)));
 }
 }  // namespace std
