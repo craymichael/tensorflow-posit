@@ -168,11 +168,7 @@ struct scalar_cast_op<::tensorflow::posit16, float> {
   typedef float result_type;
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE float operator()(
       const ::tensorflow::posit16& a) const {
-    float ret;
-    uint16_t* p = reinterpret_cast<uint16_t*>(&ret);
-    // FIXME: posit
-    *p = a.value;
-    return ret;
+    return static_cast<result_type>(a);
   }
 };
 
