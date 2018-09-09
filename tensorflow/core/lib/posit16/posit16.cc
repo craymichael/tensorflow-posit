@@ -17,6 +17,7 @@ limitations under the License.
 
 #include "third_party/eigen3/Eigen/Core"
 #include "softposit.h"
+#include <ostream>
 
 namespace tensorflow {
 
@@ -42,6 +43,12 @@ P16_DEVICE_FUNC posit16::operator double() const {
 
 P16_DEVICE_FUNC posit16::operator Eigen::half() const {
   return static_cast<Eigen::half>(float(*this));
+}
+
+P16_DEVICE_FUNC std::ostream& operator<<(std::ostream& os, const posit16& dt) {
+  posit16_t p = { .v=dt.value };
+  os << convertP16ToDouble(p);
+  return os;
 }
 
 P16_DEVICE_FUNC posit16 operator+(posit16 a, posit16 b) {
