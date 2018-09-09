@@ -201,8 +201,7 @@ class DType(object):
         if self.base_dtype == bfloat16:
           return _np_bfloat16(float.fromhex("-0x1.FEp127"))
         elif self.base_dtype == posit16:
-          # FIXME: posit
-          return _np_posit16(0x0001)
+          return _np_posit16(3.7252902984619140625e-9)
         raise TypeError("Cannot find minimum value of %s." % self)
 
   @property
@@ -228,8 +227,7 @@ class DType(object):
         if self.base_dtype == bfloat16:
           return _np_bfloat16(float.fromhex("0x1.FEp127"))
         elif self.base_dtype == posit16:
-          # FIXME: posit
-          return _np_posit16(0x7FFF)
+          return _np_posit16(268435456.0)
         raise TypeError("Cannot find maximum value of %s." % self)
 
   @property
