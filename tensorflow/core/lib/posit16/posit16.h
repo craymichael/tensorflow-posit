@@ -16,10 +16,7 @@ limitations under the License.
 #ifndef TENSORFLOW_CORE_LIB_POSIT16_POSIT16_H_
 #define TENSORFLOW_CORE_LIB_POSIT16_POSIT16_H_
 
-#include <cmath>
 #include <complex>
-
-#include "tensorflow/core/platform/byte_order.h"
 
 #ifdef __CUDACC__
 // All functions callable from CUDA code must be qualified with __device__
@@ -260,27 +257,17 @@ inline bool isinf(const posit16& a) { return a.value == posit16::NAR_VALUE; }
 inline bool isnan(const posit16& a) { return a.value == posit16::NAR_VALUE; }
 inline bool isfinite(const posit16& a) { return a.value != posit16::NAR_VALUE; }
 inline posit16 abs(const posit16& a) { posit16 r; r.value = (a.value <= 0x7FFF) ? a.value : -a.value; return r; }
-inline posit16 exp(const posit16& a) { return posit16(std::exp(float(a))); }
-inline posit16 log(const posit16& a) { return posit16(std::log(float(a))); }
-inline posit16 log10(const posit16& a) {
-  return posit16(std::log10(float(a)));
-}
+posit16 exp(const posit16& a);
+posit16 log(const posit16& a);
+posit16 log10(const posit16& a);
 posit16 sqrt(const posit16& a);
-inline posit16 pow(const posit16& a, const posit16& b) {
-  return posit16(std::pow(float(a), float(b)));
-}
-inline posit16 sin(const posit16& a) { return posit16(std::sin(float(a))); }
-inline posit16 cos(const posit16& a) { return posit16(std::cos(float(a))); }
-inline posit16 tan(const posit16& a) { return posit16(std::tan(float(a))); }
-inline posit16 tanh(const posit16& a) {
-  return posit16(std::tanh(float(a)));
-}
-inline posit16 floor(const posit16& a) {
-  return posit16(std::floor(float(a)));
-}
-inline posit16 ceil(const posit16& a) {
-  return posit16(std::ceil(float(a)));
-}
+posit16 pow(const posit16& a, const posit16& b);
+posit16 sin(const posit16& a);
+posit16 cos(const posit16& a);
+posit16 tan(const posit16& a);
+posit16 tanh(const posit16& a);
+posit16 floor(const posit16& a);
+posit16 ceil(const posit16& a);
 }  // namespace std
 
 #endif  // TENSORFLOW_CORE_LIB_POSIT16_POSIT16_H_
