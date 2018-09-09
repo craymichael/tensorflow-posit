@@ -14,6 +14,7 @@ limitations under the License.
 ==============================================================================*/
 
 #include <array>
+#include <sstream>
 
 #include "tensorflow/python/lib/core/posit16.h"
 
@@ -288,14 +289,18 @@ PyObject* PyPosit16_RichCompare(PyObject* a, PyObject* b, int op) {
 // Implementation of repr() for PyPosit16.
 PyObject* PyPosit16_Repr(PyObject* self) {
   posit16 x = reinterpret_cast<PyPosit16*>(self)->value;
-  string v = strings::StrCat("posit16(", static_cast<float>(x), ")");
+  std::ostringstream s;
+  s << x;
+  string v = strings::StrCat("posit16(", s.str(), ")");
   return MakePyString(v);
 }
 
 // Implementation of str() for PyPosit16.
 PyObject* PyPosit16_Str(PyObject* self) {
   posit16 x = reinterpret_cast<PyPosit16*>(self)->value;
-  string v = strings::StrCat(static_cast<float>(x));
+  std::ostringstream s;
+  s << x;
+  string v = strings::StrCat(s.str());
   return MakePyString(v);
 }
 
