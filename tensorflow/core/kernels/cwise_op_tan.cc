@@ -16,8 +16,8 @@ limitations under the License.
 #include "tensorflow/core/kernels/cwise_ops_common.h"
 
 namespace tensorflow {
-REGISTER4(UnaryOp, CPU, "Tan", functor::tan, float, double, complex64,
-          complex128);
+REGISTER5(UnaryOp, CPU, "Tan", functor::tan, float, double, complex64,
+          complex128, posit16);
 
 #if GOOGLE_CUDA
 REGISTER2(UnaryOp, GPU, "Tan", functor::tan, float, double);
