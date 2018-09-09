@@ -14,37 +14,20 @@ limitations under the License.
 ==============================================================================*/
 
 #include "tensorflow/core/framework/posit16.h"
+#include "tensorflow/core/lib/posit16/posit16.h"
 
 namespace tensorflow {
 
 void FloatToPosit16(const float* src, posit16* dst, int64 size) {
-  const uint16_t* p = reinterpret_cast<const uint16_t*>(src);
-  uint16_t* q = reinterpret_cast<uint16_t*>(dst);
-#if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
-  for (; size != 0; p += 2, q++, size--) {
-    *q = p[0];
+  for (int64 i = 0; i < size; i++) {
+    dst[i] = posit16(src[i]);
   }
-#else
-  for (; size != 0; p += 2, q++, size--) {
-    *q = p[1];
-  }
-#endif
 }
 
 void Posit16ToFloat(const posit16* src, float* dst, int64 size) {
-  const uint16_t* p = reinterpret_cast<const uint16_t*>(src);
-  uint16_t* q = reinterpret_cast<uint16_t*>(dst);
-#if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
-  for (; size != 0; p++, q += 2, size--) {
-    q[0] = *p;
-    q[1] = 0;
+  for (int64 i = 0; i < size; i++) {
+    dst[i] = static_cast<float>(src[i]);
   }
-#else
-  for (; size != 0; p++, q += 2, size--) {
-    q[0] = 0;
-    q[1] = *p;
-  }
-#endif
 }
 
 }  // end namespace tensorflow
