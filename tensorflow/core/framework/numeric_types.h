@@ -128,7 +128,7 @@ EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::bfloat16 log(
 template <>
 EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit16 log(
     const tensorflow::posit16& x) {
-  return static_cast<tensorflow::posit16>(::logf(static_cast<float>(x)));
+  return std::log(x);
 }
 
 template <>
@@ -140,7 +140,7 @@ EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::bfloat16 exp(
 template <>
 EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit16 exp(
     const tensorflow::posit16& x) {
-  return static_cast<tensorflow::posit16>(::expf(static_cast<float>(x)));
+  return std::exp(x);
 }
 
 template <>
@@ -152,7 +152,7 @@ EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::bfloat16 abs(
 template <>
 EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit16 abs(
     const tensorflow::posit16& x) {
-  return static_cast<tensorflow::posit16>(::fabsf(static_cast<float>(x)));
+  return std::abs(x);
 }
 
 }  // namespace numext
