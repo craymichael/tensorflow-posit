@@ -804,9 +804,8 @@ PHILOX_DEVICE_INLINE bfloat16 Uint16ToGfloat16(uint16 x) {
 }
 
 PHILOX_DEVICE_INLINE posit16 Uint16ToPosit16(uint16 x) {
-  // FIXME: posit
   posit16 result;
-  result.value = x;
+  result.value = x & 0x3FFF;
   return result;
 }
 
