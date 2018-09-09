@@ -169,11 +169,7 @@ struct posit16 {
   static const uint16_t ZERO_VALUE = 0x0000;
 };
 
-P16_DEVICE_FUNC inline std::ostream& operator<<(std::ostream& os,
-                                                const posit16& dt) {
-  os << static_cast<double>(dt);
-  return os;
-}
+P16_DEVICE_FUNC std::ostream& operator<<(std::ostream& os, const posit16& dt);
 
 P16_DEVICE_FUNC posit16 operator+(posit16 a, posit16 b);
 P16_DEVICE_FUNC inline posit16 operator+(posit16 a, int b) {
