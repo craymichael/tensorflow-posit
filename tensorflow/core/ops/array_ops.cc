@@ -891,7 +891,7 @@ REGISTER_OP("Reverse")
     .Output("output: T")
     .Attr(
         "T: {uint8, int8, uint16, int16, int32, int64, bool, half, "
-        "float, double, complex64, complex128, string}")
+        "float, double, complex64, complex128, string, posit16}")
     .SetShapeFn([](InferenceContext* c) {
       ShapeHandle input = c->input(0);
       ShapeHandle dims;
@@ -916,7 +916,7 @@ REGISTER_OP("ReverseV2")
     .Attr("Tidx: {int32, int64} = DT_INT32")
     .Attr(
         "T: {uint8, int8, uint16, int16, int32, int64, bool, bfloat16, half, "
-        "float, double, complex64, complex128, string}")
+        "float, double, complex64, complex128, string, posit16}")
     .SetShapeFn([](InferenceContext* c) {
       ShapeHandle input = c->input(0);
       ShapeHandle axis;
