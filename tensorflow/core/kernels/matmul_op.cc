@@ -586,6 +586,7 @@ struct MatMulFunctor<SYCLDevice, T> {
 // label and NO-LABEL
 TF_CALL_half(REGISTER_CPU);
 TF_CALL_bfloat16(REGISTER_CPU);
+TF_CALL_posit16(REGISTER_CPU);
 TF_CALL_int32(REGISTER_CPU);
 
 // Float is supported in both MKL DNN as well as in MKL ML
@@ -613,6 +614,7 @@ TF_CALL_float(REGISTER_CPU);
 TF_CALL_double(REGISTER_CPU);
 TF_CALL_half(REGISTER_CPU);
 TF_CALL_bfloat16(REGISTER_CPU);
+TF_CALL_posit16(REGISTER_CPU);
 TF_CALL_int32(REGISTER_CPU);
 TF_CALL_complex64(REGISTER_CPU);
 TF_CALL_complex128(REGISTER_CPU);
