@@ -85,6 +85,7 @@ class SoftmaxOp : public OpKernel {
 TF_CALL_half(REGISTER_CPU);
 TF_CALL_float(REGISTER_CPU);
 TF_CALL_double(REGISTER_CPU);
+TF_CALL_posit16(REGISTER_CPU);
 
 #undef REGISTER_CPU
 #define REGISTER_CPU(T)                                             \
@@ -94,6 +95,7 @@ TF_CALL_double(REGISTER_CPU);
 TF_CALL_half(REGISTER_CPU);
 TF_CALL_float(REGISTER_CPU);
 TF_CALL_double(REGISTER_CPU);
+TF_CALL_posit16(REGISTER_CPU);
 
 #ifdef TENSORFLOW_USE_SYCL
 REGISTER_KERNEL_BUILDER(
