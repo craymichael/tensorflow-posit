@@ -720,7 +720,7 @@ REGISTER_OP("OnesLike")
     .Output("y: T")
     .Attr(
         "T: {bfloat16, half, float, double, int8, uint8, int16, uint16, int32, "
-        "int64, complex64, complex128, bool}")
+        "int64, complex64, complex128, bool, posit16}")
     .SetShapeFn(shape_inference::UnchangedShape);
 
 // --------------------------------------------------------------------------
@@ -729,7 +729,7 @@ REGISTER_OP("Diag")
     .Output("output: T")
     .Attr(
         "T: {bfloat16, half, float, double, int32, int64, complex64, "
-        "complex128}")
+        "complex128, posit16}")
     .SetShapeFn([](InferenceContext* c) {
       ShapeHandle in = c->input(0);
       TF_RETURN_IF_ERROR(c->WithRankAtLeast(in, 1, &in));
@@ -746,7 +746,7 @@ REGISTER_OP("DiagPart")
     .Output("diagonal: T")
     .Attr(
         "T: {bfloat16, half, float, double, int32, int64, complex64, "
-        "complex128}")
+        "complex128, posit16}")
     .SetShapeFn([](InferenceContext* c) {
       ShapeHandle in = c->input(0);
       if (!c->RankKnown(in)) {
@@ -1266,7 +1266,7 @@ REGISTER_OP("PreventGradient")
 REGISTER_OP("CheckNumerics")
     .Input("tensor: T")
     .Output("output: T")
-    .Attr("T: {bfloat16, half, float, double}")
+    .Attr("T: {bfloat16, half, float, double, posit16}")
     .Attr("message: string")
     .SetShapeFn(shape_inference::UnchangedShape);
 
@@ -2552,11 +2552,12 @@ REGISTER_OP("Bitcast")
     // All supported dtypes are listed here to include qint16 and quint16.
     .Attr(
         "T: {bfloat16, half, float, double, int64, int32, uint8, uint16, int8, "
-        "int16, complex64, complex128, qint8, quint8, qint16, quint16, qint32}")
+        "int16, complex64, complex128, qint8, quint8, qint16, quint16, qint32, "
+        "posit16}")
     .Attr(
         "type: {bfloat16, half, float, double, int64, int32, uint8, uint16, "
         "int8, int16, complex64, complex128, qint8, quint8, qint16, quint16, "
-        "qint32}")
+        "qint32, posit16}")
     .SetShapeFn([](InferenceContext* c) {
       ShapeHandle input = c->input(0);
       if (!c->RankKnown(input)) {
@@ -2652,7 +2653,7 @@ REGISTER_OP("QuantizeAndDequantize")
     .Attr("input_min: float = 0")
     .Attr("input_max: float = 0")
     .Output("output: T")
-    .Attr("T: {bfloat16, half, float, double}")
+    .Attr("T: {bfloat16, half, float, double, posit16}")
     .SetShapeFn(shape_inference::UnchangedShape)
     .Deprecated(22, "Replaced by QuantizeAndDequantizeV2");
 
@@ -2665,7 +2666,7 @@ REGISTER_OP("QuantizeAndDequantizeV2")
     .Attr("num_bits: int = 8")
     .Attr("range_given: bool = false")
     .Output("output: T")
-    .Attr("T: {bfloat16, half, float, double}")
+    .Attr("T: {bfloat16, half, float, double, posit16}")
     .SetShapeFn([](InferenceContext* c) {
       ShapeHandle unused;
       TF_RETURN_IF_ERROR(c->WithRank(c->input(1), 0, &unused));
@@ -2682,7 +2683,7 @@ REGISTER_OP("QuantizeAndDequantizeV3")
     .Attr("signed_input: bool = true")
     .Attr("range_given: bool = true")
     .Output("output: T")
-    .Attr("T: {bfloat16, half, float, double}")
+    .Attr("T: {bfloat16, half, float, double, posit16}")
     .SetShapeFn([](InferenceContext* c) {
       ShapeHandle unused;
       TF_RETURN_IF_ERROR(c->WithRank(c->input(1), 0, &unused));
