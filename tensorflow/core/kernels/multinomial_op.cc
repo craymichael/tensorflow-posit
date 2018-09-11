@@ -305,6 +305,7 @@ class StatelessMultinomialOp : public MultinomialOp<Device, T, OutputType> {
 TF_CALL_half(REGISTER);
 TF_CALL_float(REGISTER);
 TF_CALL_double(REGISTER);
+TF_CALL_posit16(REGISTER);
 #undef REGISTER
 
 #if GOOGLE_CUDA
@@ -327,6 +328,7 @@ TF_CALL_double(REGISTER);
 TF_CALL_half(REGISTER);
 TF_CALL_float(REGISTER);
 TF_CALL_double(REGISTER);
+TF_CALL_posit16(REGISTER);
 #undef REGISTER
 
 #endif  // GOOGLE_CUDA
