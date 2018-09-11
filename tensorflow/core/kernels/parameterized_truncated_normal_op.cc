@@ -383,6 +383,7 @@ class ParameterizedTruncatedNormalOp : public OpKernel {
 TF_CALL_half(REGISTER);
 TF_CALL_float(REGISTER);
 TF_CALL_double(REGISTER);
+TF_CALL_posit16(REGISTER);
 
 #undef REGISTER
 
