@@ -884,6 +884,7 @@ class FusedResizeConv2DUsingGemmOp : public OpKernel {
 TF_CALL_half(REGISTER_FUSED);
 TF_CALL_float(REGISTER_FUSED);
 TF_CALL_double(REGISTER_FUSED);
+TF_CALL_posit16(REGISTER_FUSED);
 
 #define REGISTER_PAD_ONLY_FUSED(T)                                        \
   REGISTER_KERNEL_BUILDER(                                                \
@@ -897,5 +898,6 @@ TF_CALL_double(REGISTER_FUSED);
 TF_CALL_half(REGISTER_PAD_ONLY_FUSED);
 TF_CALL_float(REGISTER_PAD_ONLY_FUSED);
 TF_CALL_double(REGISTER_PAD_ONLY_FUSED);
+TF_CALL_posit16(REGISTER_PAD_ONLY_FUSED);
 
 }  // namespace tensorflow
