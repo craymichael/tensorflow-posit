@@ -265,6 +265,7 @@ class Conv3DBackpropInputOp : public OpKernel {
 TF_CALL_half(REGISTER_CPU_KERNEL);
 TF_CALL_float(REGISTER_CPU_KERNEL);
 TF_CALL_double(REGISTER_CPU_KERNEL);
+TF_CALL_posit16(REGISTER_CPU_KERNEL);
 #undef REGISTER_CPU_KERNEL
 
 // Backprop for filter.
@@ -434,6 +435,7 @@ class Conv3DBackpropFilterOp : public OpKernel {
 TF_CALL_half(REGISTER_CPU_KERNEL);
 TF_CALL_float(REGISTER_CPU_KERNEL);
 TF_CALL_double(REGISTER_CPU_KERNEL);
+TF_CALL_posit16(REGISTER_CPU_KERNEL);
 #undef REGISTER_CPU_KERNEL
 
 // GPU definitions of both ops.
