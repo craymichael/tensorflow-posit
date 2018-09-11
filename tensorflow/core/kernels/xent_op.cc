@@ -133,6 +133,7 @@ struct XentFunctor<SYCLDevice, T> : XentFunctorBase<SYCLDevice, T> {};
 TF_CALL_half(REGISTER_CPU);
 TF_CALL_float(REGISTER_CPU);
 TF_CALL_double(REGISTER_CPU);
+TF_CALL_posit16(REGISTER_CPU);
 
 #if GOOGLE_CUDA
 REGISTER_KERNEL_BUILDER(Name("SoftmaxCrossEntropyWithLogits")
