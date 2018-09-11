@@ -155,6 +155,24 @@ EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit16 abs(
   return std::abs(x);
 }
 
+template <>
+EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit16 sqrt(
+    const tensorflow::posit16& x) {
+  return std::sqrt(x);
+}
+
+template <>
+EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE bool isinf(
+    const tensorflow::posit16& x) {
+  return std::isinf(x);
+}
+
+template <>
+EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE bool isfinite(
+    const tensorflow::posit16& x) {
+  return std::isfinite(x);
+}
+
 }  // namespace numext
 }  // namespace Eigen
 
