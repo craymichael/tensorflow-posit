@@ -804,8 +804,11 @@ PHILOX_DEVICE_INLINE bfloat16 Uint16ToGfloat16(uint16 x) {
 }
 
 PHILOX_DEVICE_INLINE posit16 Uint16ToPosit16(uint16 x) {
+  posit16 one;
+  one.value = posit16::ONE_VALUE;
   posit16 result;
-  result.value = x & 0x3FFF;
+  result.value = (x & 0x0FFF) | 0x4000;
+  result -= one;
   return result;
 }
 
