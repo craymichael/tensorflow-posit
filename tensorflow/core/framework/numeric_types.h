@@ -106,7 +106,7 @@ struct NumTraits<tensorflow::posit16>
   }
 
   static EIGEN_STRONG_INLINE tensorflow::posit16 infinity() {
-    return tensorflow::posit16::nar();
+    return tensorflow::posit16::highest();
   }
 
   static EIGEN_STRONG_INLINE tensorflow::posit16 quiet_NaN() {
