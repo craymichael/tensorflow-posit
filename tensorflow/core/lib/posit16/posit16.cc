@@ -93,6 +93,24 @@ P16_DEVICE_FUNC posit16 operator/(posit16 a, posit16 b) {
 namespace std {
 using tensorflow::posit16;
 
+bool isinf(const posit16& a) {
+  return a.value == posit16::NAR_VALUE;
+}
+
+bool isnan(const posit16& a) {
+  return a.value == posit16::NAR_VALUE;
+}
+
+bool isfinite(const posit16& a) {
+  return a.value != posit16::NAR_VALUE;
+}
+
+posit16 abs(const posit16& a) {
+  posit16 r;
+  r.value = (a.value <= 0x7FFF) ? a.value : -a.value;
+  return r;
+}
+
 posit16 exp(const posit16& a) {
   return posit16(std::exp(float(a)));
 }
