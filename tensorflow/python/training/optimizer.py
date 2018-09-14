@@ -891,7 +891,7 @@ class Optimizer(
       Valid types for loss, variables and gradients.
     """
     return set(
-        [dtypes.posit16,
+        [dtypes.posit16, dtypes.posit32,
          dtypes.float16, dtypes.bfloat16, dtypes.float32, dtypes.float64])
 
   def _create_slots(self, var_list):
