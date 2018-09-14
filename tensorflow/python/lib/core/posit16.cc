@@ -592,6 +592,9 @@ bool Initialize() {
   if (!RegisterPosit16Cast<double>(NPY_DOUBLE, /*cast_is_safe=*/true)) {
     return false;
   }
+  if (!RegisterPosit16Cast<uint8>(NPY_UINT8, /*cast_is_safe=*/false)) {
+    return false;
+  }
   if (!RegisterPosit16Cast<int32>(NPY_INT32, /*cast_is_safe=*/false)) {
     return false;
   }
