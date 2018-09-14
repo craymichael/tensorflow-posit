@@ -175,6 +175,7 @@ inline bool IsDtypeTrainable(DataType dtype) {
     case DT_HALF:
     case DT_BFLOAT16:
     case DT_POSIT16:
+    case DT_POSIT32:
     case DT_FLOAT:
     case DT_DOUBLE:
     case DT_COMPLEX64:
