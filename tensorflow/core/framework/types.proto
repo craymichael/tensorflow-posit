@@ -39,6 +39,7 @@ enum DataType {
   DT_UINT32 = 22;
   DT_UINT64 = 23;
   DT_POSIT16 = 24;
+  DT_POSIT32 = 25;
 
   // Do not use!  These are only for parameters.  Every enum above
   // should have a corresponding value below (verified by types_test).
@@ -66,6 +67,7 @@ enum DataType {
   DT_UINT32_REF = 122;
   DT_UINT64_REF = 123;
   DT_POSIT16_REF = 124;
+  DT_POSIT32_REF = 125;
 }
 // LINT.ThenChange(
 //    https://www.tensorflow.org/code/tensorflow/c/c_api.h,

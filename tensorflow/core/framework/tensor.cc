@@ -437,6 +437,16 @@ struct ProtoHelper<posit16> {
 };
 
 template <>
+struct ProtoHelper<posit32> {
+  static void Fill(const posit32* data, size_t n, TensorProto* proto) {
+    proto->mutable_uint32_val()->Reserve(n);
+    for (size_t i = 0; i < n; ++i) {
+      proto->mutable_uint32_val()->AddAlreadyReserved(data[i].value);
+    }
+  }
+};
+
+template <>
 struct ProtoHelper<Eigen::half> {
   static void Fill(const Eigen::half* data, size_t n, TensorProto* proto) {
     proto->mutable_half_val()->Reserve(n);
@@ -609,6 +619,30 @@ TensorBuffer* FromProtoField<posit16>(Allocator* a, const TensorProto& in,
   return buf;
 }
 
+template <>
+TensorBuffer* FromProtoField<posit32>(Allocator* a, const TensorProto& in,
+                                       int64 n) {
+  CHECK_GT(n, 0);
+  Buffer<posit32>* buf = new Buffer<posit32>(a, n);
+  uint32* data = buf->template base<uint32>();
+  if (data == nullptr) {
+    buf->Unref();
+    return nullptr;
+  }
+  const int64 in_n = in.uint32_val().size();
+  auto begin = in.uint32_val().begin();
+  if (n <= in_n) {
+    std::copy_n(begin, n, data);
+  } else if (in_n > 0) {
+    std::copy_n(begin, in_n, data);
+    const uint32 last = *(data + in_n - 1);
+    std::fill_n(data + in_n, n - in_n, last);
+  } else {
+    std::fill_n(data, n, 0);
+  }
+  return buf;
+}
+
 // Copies T[n] stored in the buffer "in" into the repeated field in
 // "out" corresponding to type T.
 template <typename T>
@@ -737,6 +771,7 @@ bool Tensor::RefCountIsOne() const {
     CASE(qint16, SINGLE_ARG(STMTS))                            \
     CASE(bfloat16, SINGLE_ARG(STMTS))                          \
     CASE(posit16, SINGLE_ARG(STMTS))                           \
+    CASE(posit32, SINGLE_ARG(STMTS))                           \
     CASE(Eigen::half, SINGLE_ARG(STMTS))                       \
     CASE(ResourceHandle, SINGLE_ARG(STMTS))                    \
     CASE(Variant, SINGLE_ARG(STMTS))                           \
