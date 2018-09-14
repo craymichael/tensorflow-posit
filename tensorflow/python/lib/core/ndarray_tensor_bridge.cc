@@ -111,6 +111,9 @@ PyTypeObject TensorReleaserType = {
 Status TF_DataType_to_PyArray_TYPE(TF_DataType tf_datatype,
                                    int* out_pyarray_type) {
   switch (tf_datatype) {
+    case TF_POSIT32:
+      *out_pyarray_type = NPY_POSIT32;
+      break;
     case TF_HALF:
       *out_pyarray_type = NPY_FLOAT16;
       break;
