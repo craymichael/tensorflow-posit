@@ -183,7 +183,7 @@ def set_floatx(value):
       ValueError: In case of invalid value.
   """
   global _FLOATX
-  if value not in {'float16', 'float32', 'float64', 'posit16'}:
+  if value not in {'float16', 'float32', 'float64', 'posit16', 'posit32'}:
     raise ValueError('Unknown floatx type: ' + str(value))
   _FLOATX = str(value)
 
@@ -4786,7 +4786,7 @@ if os.path.exists(_config_path):
   except ValueError:
     _config = {}
   _floatx = _config.get('floatx', floatx())
-  assert _floatx in {'float16', 'float32', 'float64', 'posit16'}
+  assert _floatx in {'float16', 'float32', 'float64', 'posit16', 'posit32'}
   _epsilon = _config.get('epsilon', epsilon())
   assert isinstance(_epsilon, float)
   _image_data_format = _config.get('image_data_format', image_data_format())
