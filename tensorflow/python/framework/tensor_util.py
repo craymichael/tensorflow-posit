@@ -67,6 +67,11 @@ def ExtractBitsFromPosit16(x):
       np.asarray(x, dtype=dtypes.posit16.as_numpy_dtype).view(np.uint16))
 
 
+def ExtractBitsFromPosit32(x):
+  return np.asscalar(
+      np.asarray(x, dtype=np.posit32).view(np.uint32))
+
+
 def SlowAppendBFloat16ArrayToTensorProto(tensor_proto, proto_values):
   tensor_proto.half_val.extend(
       [ExtractBitsFromBFloat16(x) for x in proto_values])
@@ -89,12 +94,25 @@ def FastAppendPosit16ArrayToTensorProto(tensor_proto, proto_values):
           proto_values, dtype=dtypes.posit16.as_numpy_dtype).view(np.uint16))
 
 
+def SlowAppendPosit32ArrayToTensorProto(tensor_proto, proto_values):
+  tensor_proto.uint32_val.extend(
+      [ExtractBitsFromPosit32(x) for x in proto_values])
+
+
+def FastAppendPosit32ArrayToTensorProto(tensor_proto, proto_values):
+  fast_tensor_util.AppendPosit32ArrayToTensorProto(
+      tensor_proto, np.asarray(
+          proto_values, dtype=np.posit32).view(np.uint32))
+
+
 if _FAST_TENSOR_UTIL_AVAILABLE:
   _NP_TO_APPEND_FN = {
       dtypes.bfloat16.as_numpy_dtype:
           FastAppendBFloat16ArrayToTensorProto,
       dtypes.posit16.as_numpy_dtype:
           FastAppendPosit16ArrayToTensorProto,
+      np.posit32:
+          FastAppendPosit32ArrayToTensorProto,
       np.float16:
           _MediumAppendFloat16ArrayToTensorProto,
       np.float32:
@@ -177,6 +195,7 @@ else:
   _NP_TO_APPEND_FN = {
       dtypes.bfloat16.as_numpy_dtype: SlowAppendBFloat16ArrayToTensorProto,
       dtypes.posit16.as_numpy_dtype: SlowAppendPosit16ArrayToTensorProto,
+      np.posit32: SlowAppendPosit32ArrayToTensorProto,
       np.float16: SlowAppendFloat16ArrayToTensorProto,
       np.float32: SlowAppendFloat32ArrayToTensorProto,
       np.float64: SlowAppendFloat64ArrayToTensorProto,
@@ -598,6 +617,13 @@ def MakeNdarray(tensor):
       tmp = np.fromiter(tensor.half_val, dtype=np.uint16)
       tmp.dtype = tensor_dtype.as_numpy_dtype
       return tmp.reshape(shape)
+  elif tensor_dtype == dtypes.posit32:
+    if len(tensor.uint32_val) == 1:
+      return np.repeat(
+          np.array(tensor.uint32_val[0], dtype=dtype),
+          num_elements).reshape(shape)
+    else:
+      return np.fromiter(tensor.uint32_val, dtype=dtype).reshape(shape)
   elif tensor_dtype == dtypes.float32:
     if len(tensor.float_val) == 1:
       return np.repeat(
