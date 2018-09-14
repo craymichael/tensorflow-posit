@@ -175,7 +175,7 @@ EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE bool isfinite(
 
 EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit16 log10(
     const tensorflow::posit16& x) {
-  return tensorflow::posit16(std::log10(x));
+  return std::log10(x);
 }
 
 }  // namespace numext
