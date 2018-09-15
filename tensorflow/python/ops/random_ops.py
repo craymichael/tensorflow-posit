@@ -223,7 +223,7 @@ def random_uniform(shape,
     ValueError: If `dtype` is integral and `maxval` is not specified.
   """
   dtype = dtypes.as_dtype(dtype)
-  if dtype not in (dtypes.posit16,
+  if dtype not in (dtypes.posit16, dtypes.posit32,
                    dtypes.float16, dtypes.bfloat16, dtypes.float32,
                    dtypes.float64, dtypes.int32, dtypes.int64):
     raise ValueError("Invalid dtype %r" % dtype)
