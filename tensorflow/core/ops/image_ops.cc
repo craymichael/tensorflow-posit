@@ -170,7 +170,7 @@ REGISTER_OP("ResizeBilinear")
     .Output("resized_images: float")
     .Attr(
         "T: {int8, uint8, int16, uint16, int32, int64, bfloat16, half, "
-        "float, double, posit16}")
+        "float, double, posit16, posit32}")
     .Attr("align_corners: bool = false")
     .SetShapeFn(ResizeShapeFn);
 
@@ -201,7 +201,7 @@ REGISTER_OP("ResizeBilinearGrad")
     .Input("grads: float")
     .Input("original_image: T")
     .Output("output: T")
-    .Attr("T: {float, bfloat16, half, double, posit16}")
+    .Attr("T: {float, bfloat16, half, double, posit16, posit32}")
     .Attr("align_corners: bool = false")
     .SetShapeFn([](InferenceContext* c) {
       c->set_output(0, c->input(1));
@@ -449,14 +449,14 @@ REGISTER_OP("DecodeGif")
 REGISTER_OP("RGBToHSV")
     .Input("images: T")
     .Output("output: T")
-    .Attr("T: {half, bfloat16, float, double, posit16} = DT_FLOAT")
+    .Attr("T: {half, bfloat16, float, double, posit16, posit32} = DT_FLOAT")
     .SetShapeFn(ColorspaceShapeFn);
 
 // --------------------------------------------------------------------------
 REGISTER_OP("HSVToRGB")
     .Input("images: T")
     .Output("output: T")
-    .Attr("T: {half, bfloat16, float, double, posit16} = DT_FLOAT")
+    .Attr("T: {half, bfloat16, float, double, posit16, posit32} = DT_FLOAT")
     .SetShapeFn(ColorspaceShapeFn);
 
 // --------------------------------------------------------------------------
