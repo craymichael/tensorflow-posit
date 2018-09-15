@@ -817,6 +817,23 @@ def to_posit16(x, name="ToPosit16"):
   return cast(x, dtypes.posit16, name=name)
 
 
+@tf_export("to_posit32")
+def to_posit32(x, name="ToPosit32"):
+  """Casts a tensor to type `posit32`.
+
+  Args:
+    x: A `Tensor` or `SparseTensor`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` or `SparseTensor` with same shape as `x` with type `posit32`.
+
+  Raises:
+    TypeError: If `x` cannot be cast to the `posit32`.
+  """
+  return cast(x, dtypes.posit32, name=name)
+
+
 @tf_export("to_complex64")
 def to_complex64(x, name="ToComplex64"):
   """Casts a tensor to type `complex64`.
@@ -936,6 +953,7 @@ _TRUEDIV_TABLE = {
     dtypes.int64: dtypes.float64,
     dtypes.bfloat16: None,
     dtypes.posit16: None,
+    dtypes.posit32: None,
     dtypes.float16: None,
     dtypes.float32: None,
     dtypes.float64: None,
