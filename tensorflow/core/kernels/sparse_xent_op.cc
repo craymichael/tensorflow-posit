@@ -127,6 +127,8 @@ REGISTER(CPU, Eigen::half, int32)
 REGISTER(CPU, Eigen::half, int64)
 REGISTER(CPU, posit16, int32)
 REGISTER(CPU, posit16, int64)
+REGISTER(CPU, posit32, int32)
+REGISTER(CPU, posit32, int64)
 
 #if GOOGLE_CUDA
 REGISTER(GPU, float, int32)

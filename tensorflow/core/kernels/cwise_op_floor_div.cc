@@ -18,8 +18,8 @@ limitations under the License.
 namespace tensorflow {
 REGISTER6(BinaryOp, CPU, "FloorDiv", functor::safe_floor_div, uint8, uint16,
           int8, int16, int32, int64);
-REGISTER4(BinaryOp, CPU, "FloorDiv", functor::floor_div_real, float,
-          Eigen::half, double, posit16);
+REGISTER5(BinaryOp, CPU, "FloorDiv", functor::floor_div_real, float,
+          Eigen::half, double, posit16, posit32);
 
 #if GOOGLE_CUDA
 REGISTER4(BinaryOp, GPU, "FloorDiv", functor::floor_div, uint8, uint16, int16,

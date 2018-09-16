@@ -19,6 +19,7 @@ limitations under the License.
 
 #include "tensorflow/core/framework/bfloat16.h"
 #include "tensorflow/core/framework/posit16.h"
+#include "tensorflow/core/framework/posit32.h"
 #include "tensorflow/core/kernels/cast_op.h"
 
 namespace tensorflow {
@@ -63,8 +64,10 @@ DEFINE_ALL_FROM(std::complex<float>);
 DEFINE_ALL_FROM(std::complex<double>);
 DEFINE(bfloat16, float);
 DEFINE(posit16, float);
+DEFINE(posit32, float);
 DEFINE(float, bfloat16);
 DEFINE(float, posit16);
+DEFINE(float, posit32);
 
 #undef DEFINE_ALL_FROM
 #undef DEFINE

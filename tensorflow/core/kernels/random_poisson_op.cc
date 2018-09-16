@@ -328,6 +328,7 @@ TF_CALL_half(REGISTER);
 TF_CALL_float(REGISTER);
 TF_CALL_double(REGISTER);
 TF_CALL_posit16(REGISTER);
+TF_CALL_posit32(REGISTER);
 
 #define REGISTER_V2(RTYPE, OTYPE)                              \
   REGISTER_KERNEL_BUILDER(Name("RandomPoissonV2")              \
@@ -342,7 +343,8 @@ TF_CALL_posit16(REGISTER);
   REGISTER_V2(RTYPE, double);      \
   REGISTER_V2(RTYPE, int32);       \
   REGISTER_V2(RTYPE, int64);       \
-  REGISTER_V2(RTYPE, posit16);
+  REGISTER_V2(RTYPE, posit16);     \
+  REGISTER_V2(RTYPE, posit32);
 
 REGISTER_ALL(Eigen::half);
 REGISTER_ALL(float);
@@ -350,6 +352,7 @@ REGISTER_ALL(double);
 REGISTER_ALL(int32);
 REGISTER_ALL(int64);
 REGISTER_ALL(posit16);
+REGISTER_ALL(posit32);
 
 #undef REGISTER_ALL
 #undef REGISTER_V2

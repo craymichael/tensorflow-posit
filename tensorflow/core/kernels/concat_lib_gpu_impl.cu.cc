@@ -22,6 +22,7 @@ limitations under the License.
 
 #include "tensorflow/core/framework/bfloat16.h"
 #include "tensorflow/core/framework/posit16.h"
+#include "tensorflow/core/framework/posit32.h"
 #include "tensorflow/core/framework/register_types.h"
 #include "tensorflow/core/framework/tensor_types.h"
 #include "tensorflow/core/kernels/cuda_device_array_gpu.h"
@@ -206,6 +207,7 @@ TF_CALL_int64(REGISTER_GPUCONCAT32);
 TF_CALL_uint8(REGISTER_GPUCONCAT32);
 REGISTER_GPUCONCAT32(bfloat16);
 REGISTER_GPUCONCAT32(posit16);
+REGISTER_GPUCONCAT32(posit32);
 REGISTER_GPUCONCAT32(bool);
 
 TF_CALL_GPU_NUMBER_TYPES(REGISTER_GPUCONCAT64);
@@ -215,6 +217,7 @@ TF_CALL_int64(REGISTER_GPUCONCAT64);
 TF_CALL_uint8(REGISTER_GPUCONCAT64);
 REGISTER_GPUCONCAT64(bfloat16);
 REGISTER_GPUCONCAT64(posit16);
+REGISTER_GPUCONCAT64(posit32);
 REGISTER_GPUCONCAT64(bool);
 
 TF_CALL_GPU_NUMBER_TYPES(REGISTER_GPU32);
@@ -224,6 +227,7 @@ TF_CALL_int64(REGISTER_GPU32);
 TF_CALL_uint8(REGISTER_GPU32);
 REGISTER_GPU32(bfloat16);
 REGISTER_GPU32(posit16);
+REGISTER_GPU32(posit32);
 REGISTER_GPU32(bool);
 
 TF_CALL_GPU_NUMBER_TYPES(REGISTER_GPU64);
@@ -233,6 +237,7 @@ TF_CALL_int64(REGISTER_GPU64);
 TF_CALL_uint8(REGISTER_GPU64);
 REGISTER_GPU64(bfloat16);
 REGISTER_GPU64(posit16);
+REGISTER_GPU64(posit32);
 REGISTER_GPU64(bool);
 
 #undef REGISTER_GPUCONCAT32

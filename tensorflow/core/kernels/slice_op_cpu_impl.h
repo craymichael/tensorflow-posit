@@ -20,6 +20,7 @@ limitations under the License.
 
 #include "tensorflow/core/framework/bfloat16.h"
 #include "tensorflow/core/framework/posit16.h"
+#include "tensorflow/core/framework/posit32.h"
 #include "tensorflow/core/framework/register_types.h"
 #include "tensorflow/core/kernels/slice_op.h"
 

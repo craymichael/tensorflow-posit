@@ -19,6 +19,7 @@ limitations under the License.
 #include "third_party/eigen3/unsupported/Eigen/CXX11/Tensor"
 #include "tensorflow/core/framework/bfloat16.h"
 #include "tensorflow/core/framework/posit16.h"
+#include "tensorflow/core/framework/posit32.h"
 #include "tensorflow/core/framework/op_kernel.h"
 #include "tensorflow/core/framework/tensor_types.h"
 #include "tensorflow/core/framework/types.h"
@@ -189,6 +190,37 @@ struct scalar_cast_op<float, ::tensorflow::posit16> {
 
 template <>
 struct functor_traits<scalar_cast_op<float, ::tensorflow::posit16>> {
+  enum { Cost = NumTraits<float>::AddCost, PacketAccess = false };
+};
+
+// Specialized cast op impls for posit32.
+template <>
+struct scalar_cast_op<::tensorflow::posit32, float> {
+  EIGEN_EMPTY_STRUCT_CTOR(scalar_cast_op)
+  typedef float result_type;
+  EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE float operator()(
+      const ::tensorflow::posit32& a) const {
+    return static_cast<result_type>(a);
+  }
+};
+
+template <>
+struct functor_traits<scalar_cast_op<::tensorflow::posit32, float>> {
+  enum { Cost = NumTraits<float>::AddCost, PacketAccess = false };
+};
+
+template <>
+struct scalar_cast_op<float, ::tensorflow::posit32> {
+  EIGEN_EMPTY_STRUCT_CTOR(scalar_cast_op)
+  typedef ::tensorflow::posit32 result_type;
+  EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE const ::tensorflow::posit32 operator()(
+      const float a) const {
+    return ::tensorflow::posit32(a);
+  }
+};
+
+template <>
+struct functor_traits<scalar_cast_op<float, ::tensorflow::posit32>> {
   enum { Cost = NumTraits<float>::AddCost, PacketAccess = false };
 };
 
