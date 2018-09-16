@@ -16,8 +16,8 @@ limitations under the License.
 #include "tensorflow/core/kernels/cwise_ops_common.h"
 
 namespace tensorflow {
-REGISTER8(BinaryOp, CPU, "Equal", functor::equal_to, float, Eigen::half, double,
-          uint8, int8, int16, bfloat16, posit16);
+REGISTER9(BinaryOp, CPU, "Equal", functor::equal_to, float, Eigen::half, double,
+          uint8, int8, int16, bfloat16, posit16, posit32)
 REGISTER_KERNEL_BUILDER(
     Name("ApproximateEqual").Device(DEVICE_CPU).TypeConstraint<float>("T"),
     ApproximateEqualOp<CPUDevice, float>);

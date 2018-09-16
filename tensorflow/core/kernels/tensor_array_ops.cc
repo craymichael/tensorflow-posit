@@ -261,6 +261,7 @@ TF_CALL_complex64(REGISTER_GPU);
 TF_CALL_complex128(REGISTER_GPU);
 REGISTER_GPU(bfloat16);
 REGISTER_GPU(posit16);
+REGISTER_GPU(posit32);
 #undef REGISTER_GPU
 
 #endif  // GOOGLE_CUDA
@@ -490,6 +491,7 @@ TF_CALL_complex64(REGISTER_GPU);
 TF_CALL_complex128(REGISTER_GPU);
 REGISTER_GPU(bfloat16);
 REGISTER_GPU(posit16);
+REGISTER_GPU(posit32);
 #undef REGISTER_GPU
 
 #endif  // GOOGLE_CUDA
@@ -580,6 +582,7 @@ TF_CALL_complex64(REGISTER_GPU);
 TF_CALL_complex128(REGISTER_GPU);
 REGISTER_GPU(bfloat16);
 REGISTER_GPU(posit16);
+REGISTER_GPU(posit32);
 #undef REGISTER_GPU
 
 #endif  // GOOGLE_CUDA
@@ -782,6 +785,7 @@ TF_CALL_complex64(REGISTER_GPU);
 TF_CALL_complex128(REGISTER_GPU);
 REGISTER_GPU(bfloat16);
 REGISTER_GPU(posit16);
+REGISTER_GPU(posit32);
 #undef REGISTER_GPU
 
 // A special GPU kernel for int32.
@@ -1004,6 +1008,7 @@ TF_CALL_complex64(REGISTER_GPU);
 TF_CALL_complex128(REGISTER_GPU);
 REGISTER_GPU(bfloat16);
 REGISTER_GPU(posit16);
+REGISTER_GPU(posit32);
 #undef REGISTER_GPU
 
 // A special GPU kernel for int32.

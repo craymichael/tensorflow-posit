@@ -1381,6 +1381,9 @@ RemoteFusedGraphExecuteUtils::FuseRemoteGraphByPlacedArguments(
     case DT_POSIT16:
       dst_ptr = tensor->flat<posit16>().data();
       break;
+    case DT_POSIT32:
+      dst_ptr = tensor->flat<posit32>().data();
+      break;
     case DT_QINT16:
       dst_ptr = tensor->flat<qint16>().data();
       break;
