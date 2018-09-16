@@ -324,7 +324,9 @@ dtype_range = {
     np.int32: (-2**31, 2**31 - 1),
     np.uint32: (0, 2**32 - 1),
     np.float32: (-1, 1),
-    np.float64: (-1, 1)
+    np.float64: (-1, 1),
+    _np_posit16: (-1, 1),
+    np.posit32: (-1, 1),
 }
 
 # Define standard wrappers for the types_pb2.DataType enum.
