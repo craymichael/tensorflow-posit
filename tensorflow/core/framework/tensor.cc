@@ -433,9 +433,10 @@ struct ProtoHelper<bfloat16> {
 template <>
 struct ProtoHelper<posit16> {
   static void Fill(const posit16* data, size_t n, TensorProto* proto) {
-    proto->mutable_half_val()->Reserve(n);
+    // FIXME(xman): protobuf has no uint16, find alternatives.
+    proto->mutable_uint32_val()->Reserve(n);
     for (size_t i = 0; i < n; ++i) {
-      proto->mutable_half_val()->AddAlreadyReserved(data[i].value);
+      proto->mutable_uint32_val()->AddAlreadyReserved(data[i].value);
     }
   }
 };

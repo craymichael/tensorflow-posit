@@ -838,7 +838,7 @@ Status CreateConstantTensorAttrValue(DataType type, double value,
       t->add_half_val(static_cast<bfloat16>(value).value);
       break;
     case DT_POSIT16:
-      t->add_half_val(static_cast<posit16>(value).value);
+      t->add_uint32_val(static_cast<posit16>(value).value);
       break;
     case DT_POSIT32:
       t->add_uint32_val(static_cast<posit32>(value).value);
