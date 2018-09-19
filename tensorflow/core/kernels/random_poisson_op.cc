@@ -327,6 +327,7 @@ class RandomPoissonOp : public OpKernel {
 TF_CALL_half(REGISTER);
 TF_CALL_float(REGISTER);
 TF_CALL_double(REGISTER);
+TF_CALL_posit8(REGISTER);
 TF_CALL_posit16(REGISTER);
 TF_CALL_posit32(REGISTER);
 
@@ -343,6 +344,7 @@ TF_CALL_posit32(REGISTER);
   REGISTER_V2(RTYPE, double);      \
   REGISTER_V2(RTYPE, int32);       \
   REGISTER_V2(RTYPE, int64);       \
+  REGISTER_V2(RTYPE, posit8);     \
   REGISTER_V2(RTYPE, posit16);     \
   REGISTER_V2(RTYPE, posit32);
 
@@ -351,6 +353,7 @@ REGISTER_ALL(float);
 REGISTER_ALL(double);
 REGISTER_ALL(int32);
 REGISTER_ALL(int64);
+REGISTER_ALL(posit8);
 REGISTER_ALL(posit16);
 REGISTER_ALL(posit32);
 

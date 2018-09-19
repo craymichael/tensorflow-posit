@@ -13,32 +13,33 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "tensorflow/core/kernels/batch_matmul_op_impl.h"
+#include "tensorflow/core/kernels/cast_op_impl.h"
 
-#if GOOGLE_CUDA
-#include "cuda/include/cuda.h"
-#endif  // GOOGLE_CUDA
+#include "tensorflow/core/util/work_sharder.h"
 
 namespace tensorflow {
 
-#if !defined(INTEL_MKL) || defined(INTEL_MKL_DNN_ONLY)
-TF_CALL_float(REGISTER_BATCH_MATMUL_CPU);
-TF_CALL_double(REGISTER_BATCH_MATMUL_CPU);
-#endif
-TF_CALL_half(REGISTER_BATCH_MATMUL_CPU);
-TF_CALL_int32(REGISTER_BATCH_MATMUL_CPU);
-TF_CALL_posit8(REGISTER_BATCH_MATMUL_CPU);
-TF_CALL_posit16(REGISTER_BATCH_MATMUL_CPU);
-TF_CALL_posit32(REGISTER_BATCH_MATMUL_CPU);
+typedef Eigen::ThreadPoolDevice CPUDevice;
+typedef Eigen::GpuDevice GPUDevice;
+
+std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
+GetCpuCastFromPosit8(DataType dst_dtype) {
+  CURRY_TYPES3(CAST_CASE, CPUDevice, posit8);
+  return nullptr;
+}
 
 #if GOOGLE_CUDA
-TF_CALL_float(REGISTER_BATCH_MATMUL_GPU);
-TF_CALL_double(REGISTER_BATCH_MATMUL_GPU);
-TF_CALL_half(REGISTER_BATCH_MATMUL_GPU);
+std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
+GetGpuCastFromPosit8(DataType dst_dtype) {
+  if (dst_dtype == DT_FLOAT) {
+    return [](OpKernelContext* ctx, const Tensor& inp, Tensor* out) {
+      functor::CastFunctor<GPUDevice, float, posit8> func;
+      func(ctx->eigen_device<GPUDevice>(), out->flat<float>(),
+           inp.flat<posit8>());
+    };
+  }
+  return nullptr;
+}
 #endif  // GOOGLE_CUDA
 
-#ifdef TENSORFLOW_USE_SYCL
-TF_CALL_float(REGISTER_BATCH_MATMUL_SYCL);
-TF_CALL_double(REGISTER_BATCH_MATMUL_SYCL);
-#endif  // TENSORFLOW_USE_SYCL
 }  // namespace tensorflow

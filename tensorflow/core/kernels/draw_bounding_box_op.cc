@@ -182,6 +182,7 @@ class DrawBoundingBoxesOp : public OpKernel {
       DrawBoundingBoxesOp<T>);
 TF_CALL_half(REGISTER_CPU_KERNEL);
 TF_CALL_float(REGISTER_CPU_KERNEL);
+TF_CALL_posit8(REGISTER_CPU_KERNEL);
 TF_CALL_posit16(REGISTER_CPU_KERNEL);
 TF_CALL_posit32(REGISTER_CPU_KERNEL);
 
