@@ -38,8 +38,9 @@ enum DataType {
   DT_VARIANT = 21;  // Arbitrary C++ data types
   DT_UINT32 = 22;
   DT_UINT64 = 23;
-  DT_POSIT16 = 24;
-  DT_POSIT32 = 25;
+  DT_POSIT8 = 24;
+  DT_POSIT16 = 25;
+  DT_POSIT32 = 26;
 
   // Do not use!  These are only for parameters.  Every enum above
   // should have a corresponding value below (verified by types_test).
@@ -66,8 +67,9 @@ enum DataType {
   DT_VARIANT_REF = 121;
   DT_UINT32_REF = 122;
   DT_UINT64_REF = 123;
-  DT_POSIT16_REF = 124;
-  DT_POSIT32_REF = 125;
+  DT_POSIT8_REF = 124;
+  DT_POSIT16_REF = 125;
+  DT_POSIT32_REF = 126;
 }
 // LINT.ThenChange(
 //    https://www.tensorflow.org/code/tensorflow/c/c_api.h,

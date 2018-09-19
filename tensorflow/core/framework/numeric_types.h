@@ -25,6 +25,7 @@ limitations under the License.
 // clang-format on
 
 #include "tensorflow/core/lib/bfloat16/bfloat16.h"
+#include "tensorflow/core/lib/posit8/posit8.h"
 #include "tensorflow/core/lib/posit16/posit16.h"
 #include "tensorflow/core/lib/posit32/posit32.h"
 #include "tensorflow/core/platform/types.h"
@@ -56,6 +57,10 @@ static inline tensorflow::bfloat16 FloatToBFloat16(float float_val) {
     return *reinterpret_cast<tensorflow::bfloat16*>(
         &(reinterpret_cast<uint16_t*>(&float_val)[1]));
 #endif
+}
+
+static inline tensorflow::posit8 FloatToPosit8(float float_val) {
+    return static_cast<tensorflow::posit8>(float_val);
 }
 
 static inline tensorflow::posit16 FloatToPosit16(float float_val) {
@@ -91,6 +96,31 @@ struct NumTraits<tensorflow::bfloat16>
 
   static EIGEN_STRONG_INLINE tensorflow::bfloat16 quiet_NaN() {
     return FloatToBFloat16(NumTraits<float>::quiet_NaN());
+  }
+};
+
+template <>
+struct NumTraits<tensorflow::posit8>
+    : GenericNumTraits<tensorflow::posit8> {
+  enum {
+    IsInteger = 0,
+    IsSigned = 1,
+    RequireInitialization = 0
+  };
+  static EIGEN_STRONG_INLINE tensorflow::posit8 highest() {
+    return tensorflow::posit8::highest();
+  }
+
+  static EIGEN_STRONG_INLINE tensorflow::posit8 lowest() {
+    return tensorflow::posit8::lowest();
+  }
+
+  static EIGEN_STRONG_INLINE tensorflow::posit8 infinity() {
+    return tensorflow::posit8::highest();
+  }
+
+  static EIGEN_STRONG_INLINE tensorflow::posit8 quiet_NaN() {
+    return tensorflow::posit8::nar();
   }
 };
 
@@ -156,6 +186,12 @@ EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::bfloat16 log(
 }
 
 template <>
+EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit8 log(
+    const tensorflow::posit8& x) {
+  return std::log(x);
+}
+
+template <>
 EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit16 log(
     const tensorflow::posit16& x) {
   return std::log(x);
@@ -171,6 +207,12 @@ template <>
 EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::bfloat16 exp(
     const tensorflow::bfloat16& x) {
   return static_cast<tensorflow::bfloat16>(::expf(static_cast<float>(x)));
+}
+
+template <>
+EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit8 exp(
+    const tensorflow::posit8& x) {
+  return std::exp(x);
 }
 
 template <>
@@ -192,6 +234,12 @@ EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::bfloat16 abs(
 }
 
 template <>
+EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit8 abs(
+    const tensorflow::posit8& x) {
+  return std::abs(x);
+}
+
+template <>
 EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit16 abs(
     const tensorflow::posit16& x) {
   return std::abs(x);
@@ -201,6 +249,12 @@ template <>
 EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit32 abs(
     const tensorflow::posit32& x) {
   return std::abs(x);
+}
+
+template <>
+EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit8 sqrt(
+    const tensorflow::posit8& x) {
+  return std::sqrt(x);
 }
 
 template <>
@@ -217,6 +271,12 @@ EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit32 sqrt(
 
 template <>
 EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE bool isinf(
+    const tensorflow::posit8& x) {
+  return std::isinf(x);
+}
+
+template <>
+EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE bool isinf(
     const tensorflow::posit16& x) {
   return std::isinf(x);
 }
@@ -229,6 +289,12 @@ EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE bool isinf(
 
 template <>
 EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE bool isfinite(
+    const tensorflow::posit8& x) {
+  return std::isfinite(x);
+}
+
+template <>
+EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE bool isfinite(
     const tensorflow::posit16& x) {
   return std::isfinite(x);
 }
@@ -237,6 +303,11 @@ template <>
 EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE bool isfinite(
     const tensorflow::posit32& x) {
   return std::isfinite(x);
+}
+
+EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit8 log10(
+    const tensorflow::posit8& x) {
+  return std::log10(x);
 }
 
 EIGEN_DEVICE_FUNC EIGEN_ALWAYS_INLINE tensorflow::posit16 log10(

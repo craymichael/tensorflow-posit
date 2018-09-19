@@ -431,6 +431,17 @@ struct ProtoHelper<bfloat16> {
 };
 
 template <>
+struct ProtoHelper<posit8> {
+  static void Fill(const posit8* data, size_t n, TensorProto* proto) {
+    // FIXME(xman): protobuf has no uint8, find alternatives.
+    proto->mutable_uint32_val()->Reserve(n);
+    for (size_t i = 0; i < n; ++i) {
+      proto->mutable_uint32_val()->AddAlreadyReserved(data[i].value);
+    }
+  }
+};
+
+template <>
 struct ProtoHelper<posit16> {
   static void Fill(const posit16* data, size_t n, TensorProto* proto) {
     // FIXME(xman): protobuf has no uint16, find alternatives.
@@ -593,6 +604,30 @@ TensorBuffer* FromProtoField<bfloat16>(Allocator* a, const TensorProto& in,
   } else if (in_n > 0) {
     std::copy_n(begin, in_n, data);
     const uint16 last = *(data + in_n - 1);
+    std::fill_n(data + in_n, n - in_n, last);
+  } else {
+    std::fill_n(data, n, 0);
+  }
+  return buf;
+}
+
+template <>
+TensorBuffer* FromProtoField<posit8>(Allocator* a, const TensorProto& in,
+                                       int64 n) {
+  CHECK_GT(n, 0);
+  Buffer<posit8>* buf = new Buffer<posit8>(a, n);
+  uint8* data = buf->template base<uint8>();
+  if (data == nullptr) {
+    buf->Unref();
+    return nullptr;
+  }
+  const int64 in_n = in.uint32_val().size();
+  auto begin = in.uint32_val().begin();
+  if (n <= in_n) {
+    std::copy_n(begin, n, data);
+  } else if (in_n > 0) {
+    std::copy_n(begin, in_n, data);
+    const uint8 last = *(data + in_n - 1);
     std::fill_n(data + in_n, n - in_n, last);
   } else {
     std::fill_n(data, n, 0);
@@ -775,6 +810,7 @@ bool Tensor::RefCountIsOne() const {
     CASE(quint16, SINGLE_ARG(STMTS))                           \
     CASE(qint16, SINGLE_ARG(STMTS))                            \
     CASE(bfloat16, SINGLE_ARG(STMTS))                          \
+    CASE(posit8, SINGLE_ARG(STMTS))                            \
     CASE(posit16, SINGLE_ARG(STMTS))                           \
     CASE(posit32, SINGLE_ARG(STMTS))                           \
     CASE(Eigen::half, SINGLE_ARG(STMTS))                       \
