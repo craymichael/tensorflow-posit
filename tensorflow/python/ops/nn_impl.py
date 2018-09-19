@@ -894,6 +894,7 @@ def fused_batch_norm(
   # currently only use the V2 version for float16 inputs, which is not supported
   # by the V1 version.
   if x.dtype == dtypes.float16 or x.dtype == dtypes.bfloat16 or \
+     x.dtype == dtypes.posit8 or \
      x.dtype == dtypes.posit16 or x.dtype == dtypes.posit32:
     fused_batch_norm_func = gen_nn_ops.fused_batch_norm_v2
   else:
