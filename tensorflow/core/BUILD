@@ -604,6 +604,7 @@ cc_library(
         "platform/types.h",
         "platform/windows/cpu_info.h",
         "lib/bfloat16/bfloat16.h",
+        "lib/posit8/posit8.h",
         "lib/posit16/posit16.h",
         "lib/posit32/posit32.h",
     ] + tf_additional_proto_hdrs(),
@@ -622,6 +623,7 @@ cc_library(
     name = "lib",
     hdrs = [
         "lib/bfloat16/bfloat16.h",
+        "lib/posit8/posit8.h",
         "lib/posit16/posit16.h",
         "lib/posit32/posit32.h",
         "lib/core/arena.h",
@@ -787,6 +789,7 @@ tf_cuda_library(
         "framework/allocator_registry.h",
         "framework/attr_value_util.h",
         "framework/bfloat16.h",
+        "framework/posit8.h",
         "framework/posit16.h",
         "framework/posit32.h",
         "framework/cancellation.h",
@@ -961,6 +964,7 @@ cc_library(
         "framework/tensor_types.h",
         "framework/type_traits.h",
         "lib/bfloat16/bfloat16.h",
+        "lib/posit8/posit8.h",
         "lib/posit16/posit16.h",
         "lib/posit32/posit32.h",
         "platform/byte_order.h",
@@ -2162,6 +2166,7 @@ cc_library(
     srcs = ["lib/png/png_io.cc"],
     hdrs = [
         "lib/bfloat16/bfloat16.h",
+        "lib/posit8/posit8.h",
         "lib/posit16/posit16.h",
         "lib/posit32/posit32.h",
         "lib/core/casts.h",
@@ -2197,6 +2202,7 @@ cc_library(
     srcs = [],
     hdrs = [
         "lib/bfloat16/bfloat16.h",
+        "lib/posit8/posit8.h",
         "lib/posit16/posit16.h",
         "lib/posit32/posit32.h",
         "platform/default/integral_types.h",
@@ -2222,6 +2228,7 @@ cc_library(
     ]),
     hdrs = [
         "lib/bfloat16/bfloat16.h",
+        "lib/posit8/posit8.h",
         "lib/posit16/posit16.h",
         "lib/posit32/posit32.h",
         "lib/core/stringpiece.h",
@@ -2252,6 +2259,7 @@ cc_library(
     ]),
     hdrs = [
         "lib/bfloat16/bfloat16.h",
+        "lib/posit8/posit8.h",
         "lib/posit16/posit16.h",
         "lib/posit32/posit32.h",
         "lib/core/stringpiece.h",
@@ -2282,6 +2290,7 @@ cc_library(
     ]),
     hdrs = [
         "lib/bfloat16/bfloat16.h",
+        "lib/posit8/posit8.h",
         "lib/posit16/posit16.h",
         "lib/posit32/posit32.h",
         "lib/core/casts.h",
@@ -3463,6 +3472,7 @@ tf_cc_tests(
         "framework/allocator_test.cc",
         "framework/attr_value_util_test.cc",
         "framework/bfloat16_test.cc",
+        #"framework/posit8_test.cc",
         "framework/posit16_test.cc",
         #"framework/posit32_test.cc",
         "framework/cancellation_test.cc",
