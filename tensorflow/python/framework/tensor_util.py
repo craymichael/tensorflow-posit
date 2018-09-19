@@ -64,7 +64,7 @@ def ExtractBitsFromBFloat16(x):
 
 def ExtractBitsFromPosit16(x):
   return np.asscalar(
-      np.asarray(x, dtype=dtypes.posit16.as_numpy_dtype).view(np.uint16))
+      np.asarray(x, dtype=np.posit16).view(np.uint16))
 
 
 def ExtractBitsFromPosit32(x):
@@ -91,7 +91,7 @@ if _FAST_TENSOR_UTIL_AVAILABLE:
   _NP_TO_APPEND_FN = {
       dtypes.bfloat16.as_numpy_dtype:
           SlowAppendBFloat16ArrayToTensorProto,
-      dtypes.posit16.as_numpy_dtype:
+      np.posit16:
           SlowAppendPosit16ArrayToTensorProto,
       np.posit32:
           SlowAppendPosit32ArrayToTensorProto,
@@ -176,7 +176,7 @@ else:
 
   _NP_TO_APPEND_FN = {
       dtypes.bfloat16.as_numpy_dtype: SlowAppendBFloat16ArrayToTensorProto,
-      dtypes.posit16.as_numpy_dtype: SlowAppendPosit16ArrayToTensorProto,
+      np.posit16: SlowAppendPosit16ArrayToTensorProto,
       np.posit32: SlowAppendPosit32ArrayToTensorProto,
       np.float16: SlowAppendFloat16ArrayToTensorProto,
       np.float32: SlowAppendFloat32ArrayToTensorProto,
@@ -588,7 +588,7 @@ def MakeNdarray(tensor):
   if tensor.tensor_content:
     return (np.frombuffer(tensor.tensor_content, dtype=dtype).copy()
             .reshape(shape))
-  elif tensor_dtype == dtypes.float16 or tensor_dtype == dtypes.bfloat16 or tensor_dtype == dtypes.posit16:
+  elif tensor_dtype == dtypes.float16 or tensor_dtype == dtypes.bfloat16 or tensor_dtype == np.posit16:
     # the half_val field of the TensorProto stores the binary representation
     # of the fp16: we need to reinterpret this as a proper float16
     if len(tensor.half_val) == 1:
