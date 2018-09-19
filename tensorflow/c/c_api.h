@@ -120,8 +120,9 @@ typedef enum TF_DataType {
   TF_VARIANT = 21,
   TF_UINT32 = 22,
   TF_UINT64 = 23,
-  TF_POSIT16 = 24,
-  TF_POSIT32 = 25,
+  TF_POSIT8 = 24,
+  TF_POSIT16 = 25,
+  TF_POSIT32 = 26,
 } TF_DataType;
 
 // TF_DataTypeSize returns the sizeof() for the underlying type corresponding
