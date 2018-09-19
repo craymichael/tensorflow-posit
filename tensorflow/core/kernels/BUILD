@@ -4947,6 +4947,8 @@ filegroup(
         "cast_op.h",
         "cast_op_impl.h",
         "cast_op_impl_bfloat.cc",
+        "cast_op_impl_posit16.cc",
+        "cast_op_impl_posit32.cc",
         "cast_op_impl_bool.cc",
         "cast_op_impl_complex128.cc",
         "cast_op_impl_complex64.cc",
