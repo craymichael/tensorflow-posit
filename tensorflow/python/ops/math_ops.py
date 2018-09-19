@@ -790,6 +790,23 @@ def to_bfloat16(x, name="ToBFloat16"):
   return cast(x, dtypes.bfloat16, name=name)
 
 
+@tf_export("to_posit8")
+def to_posit8(x, name="ToPosit8"):
+  """Casts a tensor to type `posit8`.
+
+  Args:
+    x: A `Tensor` or `SparseTensor`.
+    name: A name for the operation (optional).
+
+  Returns:
+    A `Tensor` or `SparseTensor` with same shape as `x` with type `posit8`.
+
+  Raises:
+    TypeError: If `x` cannot be cast to the `posit8`.
+  """
+  return cast(x, dtypes.posit8, name=name)
+
+
 @tf_export("to_posit16")
 def to_posit16(x, name="ToPosit16"):
   """Casts a tensor to type `posit16`.
@@ -940,6 +957,7 @@ _TRUEDIV_TABLE = {
     dtypes.int32: dtypes.float64,
     dtypes.int64: dtypes.float64,
     dtypes.bfloat16: None,
+    dtypes.posit8: None,
     dtypes.posit16: None,
     dtypes.posit32: None,
     dtypes.float16: None,
@@ -2027,6 +2045,7 @@ def matmul(a,
 
     use_sparse_matmul = False
     if a_is_sparse or b_is_sparse:
+      # FIXME(xman): update sparse matmul for posits.
       sparse_matmul_types = [dtypes.posit16, dtypes.bfloat16, dtypes.float32]
       use_sparse_matmul = (
           a.dtype in sparse_matmul_types and b.dtype in sparse_matmul_types)

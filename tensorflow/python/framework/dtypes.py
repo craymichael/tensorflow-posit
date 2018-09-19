@@ -318,6 +318,7 @@ dtype_range = {
     np.uint32: (0, 2**32 - 1),
     np.float32: (-1, 1),
     np.float64: (-1, 1),
+    np.posit8: (-1, 1),
     np.posit16: (-1, 1),
     np.posit32: (-1, 1),
 }
@@ -375,6 +376,8 @@ resource_ref = DType(types_pb2.DT_RESOURCE_REF)
 variant_ref = DType(types_pb2.DT_VARIANT_REF)
 bfloat16 = DType(types_pb2.DT_BFLOAT16)
 tf_export("bfloat16").export_constant(__name__, "bfloat16")
+posit8 = DType(types_pb2.DT_POSIT8)
+tf_export("posit8").export_constant(__name__, "posit8")
 posit16 = DType(types_pb2.DT_POSIT16)
 tf_export("posit16").export_constant(__name__, "posit16")
 posit32 = DType(types_pb2.DT_POSIT32)
@@ -402,6 +405,7 @@ qint16_ref = DType(types_pb2.DT_QINT16_REF)
 quint16_ref = DType(types_pb2.DT_QUINT16_REF)
 qint32_ref = DType(types_pb2.DT_QINT32_REF)
 bfloat16_ref = DType(types_pb2.DT_BFLOAT16_REF)
+posit8_ref = DType(types_pb2.DT_POSIT8_REF)
 posit16_ref = DType(types_pb2.DT_POSIT16_REF)
 posit32_ref = DType(types_pb2.DT_POSIT32_REF)
 
@@ -434,6 +438,7 @@ _INTERN_TABLE = {
     types_pb2.DT_QUINT16: quint16,
     types_pb2.DT_QINT32: qint32,
     types_pb2.DT_BFLOAT16: bfloat16,
+    types_pb2.DT_POSIT8: posit8,
     types_pb2.DT_POSIT16: posit16,
     types_pb2.DT_POSIT32: posit32,
     types_pb2.DT_RESOURCE: resource,
@@ -459,6 +464,7 @@ _INTERN_TABLE = {
     types_pb2.DT_QUINT16_REF: quint16_ref,
     types_pb2.DT_QINT32_REF: qint32_ref,
     types_pb2.DT_BFLOAT16_REF: bfloat16_ref,
+    types_pb2.DT_POSIT8_REF: posit8_ref,
     types_pb2.DT_POSIT16_REF: posit16_ref,
     types_pb2.DT_POSIT32_REF: posit32_ref,
     types_pb2.DT_RESOURCE_REF: resource_ref,
@@ -488,6 +494,7 @@ _TYPE_TO_STRING = {
     types_pb2.DT_QUINT16: "quint16",
     types_pb2.DT_QINT32: "qint32",
     types_pb2.DT_BFLOAT16: "bfloat16",
+    types_pb2.DT_POSIT8: "posit8",
     types_pb2.DT_POSIT16: "posit16",
     types_pb2.DT_POSIT32: "posit32",
     types_pb2.DT_RESOURCE: "resource",
@@ -513,6 +520,7 @@ _TYPE_TO_STRING = {
     types_pb2.DT_QUINT16_REF: "quint16_ref",
     types_pb2.DT_QINT32_REF: "qint32_ref",
     types_pb2.DT_BFLOAT16_REF: "bfloat16_ref",
+    types_pb2.DT_POSIT8_REF: "posit8_ref",
     types_pb2.DT_POSIT16_REF: "posit16_ref",
     types_pb2.DT_POSIT32_REF: "posit32_ref",
     types_pb2.DT_RESOURCE_REF: "resource_ref",
@@ -570,6 +578,7 @@ _NP_TO_TF = frozenset([
     (_np_quint16, quint16),
     (_np_qint32, qint32),
     (_np_bfloat16, bfloat16),
+    (np.posit8, posit8),
     (np.posit16, posit16),
     (np.posit32, posit32),
 ])
@@ -618,6 +627,8 @@ _TF_TO_NP = {
         _np_qint32,
     types_pb2.DT_BFLOAT16:
         _np_bfloat16,
+    types_pb2.DT_POSIT8:
+        np.posit8,
     types_pb2.DT_POSIT16:
         np.posit16,
     types_pb2.DT_POSIT32:
@@ -666,6 +677,8 @@ _TF_TO_NP = {
         _np_qint32,
     types_pb2.DT_BFLOAT16_REF:
         _np_bfloat16,
+    types_pb2.DT_POSIT8_REF:
+        np.posit8,
     types_pb2.DT_POSIT16_REF:
         np.posit16,
     types_pb2.DT_POSIT32_REF:
