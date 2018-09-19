@@ -25,8 +25,6 @@ from tensorflow.python.util.tf_export import tf_export
 
 _np_bfloat16 = pywrap_tensorflow.TF_bfloat16_type()
 
-_np_posit16 = pywrap_tensorflow.TF_posit16_type()
-
 
 @tf_export("DType")
 class DType(object):
@@ -150,7 +148,6 @@ class DType(object):
     """Returns whether this is a (non-quantized, real) floating point type."""
     return ((self.is_numpy_compatible and
              np.issubdtype(self.as_numpy_dtype, np.floating)) or
-            self.base_dtype == posit16 or
             self.base_dtype == bfloat16)
 
   @property
@@ -200,8 +197,6 @@ class DType(object):
       except:
         if self.base_dtype == bfloat16:
           return _np_bfloat16(float.fromhex("-0x1.FEp127"))
-        elif self.base_dtype == posit16:
-          return _np_posit16(3.7252902984619140625e-9)
         raise TypeError("Cannot find minimum value of %s." % self)
 
   @property
@@ -226,8 +221,6 @@ class DType(object):
       except:
         if self.base_dtype == bfloat16:
           return _np_bfloat16(float.fromhex("0x1.FEp127"))
-        elif self.base_dtype == posit16:
-          return _np_posit16(268435456.0)
         raise TypeError("Cannot find maximum value of %s." % self)
 
   @property
@@ -325,7 +318,7 @@ dtype_range = {
     np.uint32: (0, 2**32 - 1),
     np.float32: (-1, 1),
     np.float64: (-1, 1),
-    _np_posit16: (-1, 1),
+    np.posit16: (-1, 1),
     np.posit32: (-1, 1),
 }
 
@@ -577,7 +570,7 @@ _NP_TO_TF = frozenset([
     (_np_quint16, quint16),
     (_np_qint32, qint32),
     (_np_bfloat16, bfloat16),
-    (_np_posit16, posit16),
+    (np.posit16, posit16),
     (np.posit32, posit32),
 ])
 _TF_TO_NP = {
@@ -626,7 +619,7 @@ _TF_TO_NP = {
     types_pb2.DT_BFLOAT16:
         _np_bfloat16,
     types_pb2.DT_POSIT16:
-        _np_posit16,
+        np.posit16,
     types_pb2.DT_POSIT32:
         np.posit32,
 
@@ -674,7 +667,7 @@ _TF_TO_NP = {
     types_pb2.DT_BFLOAT16_REF:
         _np_bfloat16,
     types_pb2.DT_POSIT16_REF:
-        _np_posit16,
+        np.posit16,
     types_pb2.DT_POSIT32_REF:
         np.posit32,
 }
