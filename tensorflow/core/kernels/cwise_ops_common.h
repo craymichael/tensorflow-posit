@@ -22,6 +22,7 @@ limitations under the License.
 
 #include "tensorflow/core/lib/bfloat16/bfloat16.h"
 
+#include "tensorflow/core/lib/posit8/posit8.h"
 #include "tensorflow/core/lib/posit16/posit16.h"
 #include "tensorflow/core/lib/posit32/posit32.h"
 

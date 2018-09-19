@@ -64,6 +64,7 @@ struct CastFunctor<Eigen::SyclDevice, O, I> {
 
 #define CURRY_TYPES3(FN, arg0, arg1)   \
   CURRY_TYPES3_NO_BF16(FN, arg0, arg1) \
+  FN(arg0, arg1, posit8) \
   FN(arg0, arg1, posit16) \
   FN(arg0, arg1, posit32) \
   FN(arg0, arg1, bfloat16);
@@ -117,6 +118,9 @@ std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
 GetCpuCastFromBfloat(DataType dst_dtype);
 
 std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
+GetCpuCastFromPosit8(DataType dst_dtype);
+
+std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
 GetCpuCastFromPosit16(DataType dst_dtype);
 
 std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
@@ -162,6 +166,9 @@ GetGpuCastFromComplex128(DataType dst_dtype);
 
 std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
 GetGpuCastFromBfloat(DataType dst_dtype);
+
+std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
+GetGpuCastFromPosit8(DataType dst_dtype);
 
 std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
 GetGpuCastFromPosit16(DataType dst_dtype);

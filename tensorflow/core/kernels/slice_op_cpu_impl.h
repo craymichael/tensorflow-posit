@@ -19,6 +19,7 @@ limitations under the License.
 #define EIGEN_USE_THREADS
 
 #include "tensorflow/core/framework/bfloat16.h"
+#include "tensorflow/core/framework/posit8.h"
 #include "tensorflow/core/framework/posit16.h"
 #include "tensorflow/core/framework/posit32.h"
 #include "tensorflow/core/framework/register_types.h"

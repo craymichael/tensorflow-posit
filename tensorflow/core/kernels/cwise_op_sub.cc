@@ -18,7 +18,7 @@ limitations under the License.
 namespace tensorflow {
 REGISTER8(BinaryOp, CPU, "Sub", functor::sub, float, Eigen::half, double, int32,
           int64, bfloat16, complex64, complex128);
-REGISTER2(BinaryOp, CPU, "Sub", functor::sub, posit16, posit32);
+REGISTER3(BinaryOp, CPU, "Sub", functor::sub, posit8, posit16, posit32);
 #if !defined(__ANDROID_TYPES_SLIM__)
 // Sub op for int8, uint8, int16, uint16
 REGISTER4(BinaryOp, CPU, "Sub", functor::sub, int8, uint8, int16, uint16);

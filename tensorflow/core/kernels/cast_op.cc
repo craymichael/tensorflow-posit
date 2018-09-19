@@ -108,6 +108,8 @@ Status CpuCastOp::Prepare() {
     work_ = GetCpuCastFromComplex128(dst_dtype_);
   } else if (src_dtype_ == DT_BFLOAT16) {
     work_ = GetCpuCastFromBfloat(dst_dtype_);
+  } else if (src_dtype_ == DT_POSIT8) {
+    work_ = GetCpuCastFromPosit8(dst_dtype_);
   } else if (src_dtype_ == DT_POSIT16) {
     work_ = GetCpuCastFromPosit16(dst_dtype_);
   } else if (src_dtype_ == DT_POSIT32) {
@@ -161,6 +163,8 @@ class GpuCastOp : public CastOpBase {
       work_ = GetGpuCastFromComplex128(dst_dtype_);
     } else if (src_dtype_ == DT_BFLOAT16) {
       work_ = GetGpuCastFromBfloat(dst_dtype_);
+    } else if (src_dtype_ == DT_POSIT8) {
+      work_ = GetGpuCastFromPosit8(dst_dtype_);
     } else if (src_dtype_ == DT_POSIT16) {
       work_ = GetGpuCastFromPosit16(dst_dtype_);
     } else if (src_dtype_ == DT_POSIT32) {
@@ -197,9 +201,11 @@ CURRY_TYPES2(REGISTER_CAST_GPU, double);
 CURRY_TYPES2(REGISTER_CAST_GPU, std::complex<float>);
 CURRY_TYPES2(REGISTER_CAST_GPU, std::complex<double>);
 REGISTER_CAST_GPU(float, bfloat16);
+REGISTER_CAST_GPU(float, posit8);
 REGISTER_CAST_GPU(float, posit16);
 REGISTER_CAST_GPU(float, posit32);
 REGISTER_CAST_GPU(bfloat16, float);
+REGISTER_CAST_GPU(posit8, float);
 REGISTER_CAST_GPU(posit16, float);
 REGISTER_CAST_GPU(posit32, float);
 

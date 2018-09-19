@@ -17,6 +17,7 @@ limitations under the License.
 
 #include "tensorflow/core/lib/bfloat16/bfloat16.h"
 
+#include "tensorflow/core/lib/posit8/posit8.h"
 #include "tensorflow/core/lib/posit16/posit16.h"
 #include "tensorflow/core/lib/posit32/posit32.h"
 
@@ -225,6 +226,7 @@ class CheckNumericsOp<GPUDevice, T> : public AsyncOpKernel {
       CheckNumericsOp<CPUDevice, T>);
 TF_CALL_half(REGISTER_CPU_KERNEL);
 TF_CALL_bfloat16(REGISTER_CPU_KERNEL);
+TF_CALL_posit8(REGISTER_CPU_KERNEL);
 TF_CALL_posit16(REGISTER_CPU_KERNEL);
 TF_CALL_posit32(REGISTER_CPU_KERNEL);
 TF_CALL_float(REGISTER_CPU_KERNEL);

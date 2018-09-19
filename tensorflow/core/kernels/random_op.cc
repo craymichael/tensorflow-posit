@@ -496,6 +496,7 @@ class RandomGammaOp : public OpKernel {
 
 TF_CALL_half(REGISTER);
 TF_CALL_bfloat16(REGISTER);
+TF_CALL_posit8(REGISTER);
 TF_CALL_posit16(REGISTER);
 TF_CALL_posit32(REGISTER);
 TF_CALL_float(REGISTER);

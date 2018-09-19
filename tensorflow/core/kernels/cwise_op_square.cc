@@ -18,7 +18,7 @@ limitations under the License.
 namespace tensorflow {
 REGISTER8(UnaryOp, CPU, "Square", functor::square, float, Eigen::half, double,
           int32, int64, complex64, complex128, bfloat16);
-REGISTER2(UnaryOp, CPU, "Square", functor::square, posit16, posit32);
+REGISTER3(UnaryOp, CPU, "Square", functor::square, posit8, posit16, posit32);
 
 #if GOOGLE_CUDA
 REGISTER4(UnaryOp, GPU, "Square", functor::square, float, Eigen::half, double,

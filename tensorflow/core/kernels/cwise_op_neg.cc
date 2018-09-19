@@ -16,8 +16,9 @@ limitations under the License.
 #include "tensorflow/core/kernels/cwise_ops_common.h"
 
 namespace tensorflow {
-REGISTER9(UnaryOp, CPU, "Neg", functor::neg, float, Eigen::half, double, int32,
-          complex64, int64, complex128, posit16, posit32);
+REGISTER7(UnaryOp, CPU, "Neg", functor::neg, float, Eigen::half, double, int32,
+          complex64, int64, complex128);
+REGISTER3(UnaryOp, CPU, "Neg", functor::neg, posit8, posit16, posit32);
 
 #ifdef TENSORFLOW_USE_SYCL
 REGISTER3(UnaryOp, SYCL, "Neg", functor::neg, float, double, int64);
