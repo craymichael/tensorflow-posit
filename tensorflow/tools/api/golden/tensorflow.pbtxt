@@ -285,6 +285,10 @@ tf_module {
     mtype: "<class \'tensorflow.python.framework.dtypes.DType\'>"
   }
   member {
+    name: "posit8"
+    mtype: "<class \'tensorflow.python.framework.dtypes.DType\'>"
+  }
+  member {
     name: "posit16"
     mtype: "<class \'tensorflow.python.framework.dtypes.DType\'>"
   }
