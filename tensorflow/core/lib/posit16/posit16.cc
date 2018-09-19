@@ -107,7 +107,7 @@ bool isfinite(const posit16& a) {
 
 posit16 abs(const posit16& a) {
   posit16 r;
-  r.value = (a.value <= 0x7FFF) ? a.value : -a.value;
+  r.value = (a.value <= 0x7FFFU) ? a.value : -a.value;
   return r;
 }
 

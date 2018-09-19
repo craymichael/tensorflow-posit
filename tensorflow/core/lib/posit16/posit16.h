@@ -136,34 +136,34 @@ struct posit16 {
 
   static posit16 epsilon() {
     posit16 x;
-    x.value = 0x0001;
+    x.value = 0x0001U;
     return x;
   }
 
   static posit16 highest() {
     posit16 x;
-    x.value = 0x7FFF;
+    x.value = 0x7FFFU;
     return x;
   }
 
   static posit16 lowest() {
     posit16 x;
-    x.value = 0x0001;
+    x.value = 0x0001U;
     return x;
   }
 
   static posit16 nar() {
     posit16 x;
-    x.value = 0x8000;
+    x.value = NAR_VALUE;
     return x;
   }
 
   uint16_t value;
 
   // A value that represents "not a real".
-  static const uint16_t NAR_VALUE = 0x8000;
-  static const uint16_t ONE_VALUE = 0x4000;
-  static const uint16_t ZERO_VALUE = 0x0000;
+  static const uint16_t NAR_VALUE = 0x8000U;
+  static const uint16_t ONE_VALUE = 0x4000U;
+  static const uint16_t ZERO_VALUE = 0x0000U;
 };
 
 P16_DEVICE_FUNC std::ostream& operator<<(std::ostream& os, const posit16& dt);
