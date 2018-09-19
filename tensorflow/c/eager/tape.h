@@ -174,6 +174,7 @@ inline bool IsDtypeTrainable(DataType dtype) {
   switch (dtype) {
     case DT_HALF:
     case DT_BFLOAT16:
+    case DT_POSIT8:
     case DT_POSIT16:
     case DT_POSIT32:
     case DT_FLOAT:
