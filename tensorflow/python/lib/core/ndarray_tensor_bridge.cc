@@ -22,7 +22,6 @@ limitations under the License.
 #include "tensorflow/core/lib/core/errors.h"
 #include "tensorflow/core/platform/mutex.h"
 #include "tensorflow/python/lib/core/bfloat16.h"
-#include "tensorflow/python/lib/core/posit16.h"
 #include "tensorflow/python/lib/core/ndarray_tensor_bridge.h"
 
 namespace tensorflow {
@@ -111,6 +110,9 @@ PyTypeObject TensorReleaserType = {
 Status TF_DataType_to_PyArray_TYPE(TF_DataType tf_datatype,
                                    int* out_pyarray_type) {
   switch (tf_datatype) {
+    case TF_POSIT16:
+      *out_pyarray_type = NPY_POSIT16;
+      break;
     case TF_POSIT32:
       *out_pyarray_type = NPY_POSIT32;
       break;
@@ -182,9 +184,6 @@ Status TF_DataType_to_PyArray_TYPE(TF_DataType tf_datatype,
       break;
     case TF_BFLOAT16:
       *out_pyarray_type = Bfloat16NumpyType();
-      break;
-    case TF_POSIT16:
-      *out_pyarray_type = Posit16NumpyType();
       break;
     default:
       return errors::Internal("Tensorflow type ", tf_datatype,

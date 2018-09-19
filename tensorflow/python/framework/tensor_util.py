@@ -64,7 +64,7 @@ def ExtractBitsFromBFloat16(x):
 
 def ExtractBitsFromPosit16(x):
   return np.asscalar(
-      np.asarray(x, dtype=dtypes.posit16.as_numpy_dtype).view(np.uint16))
+      np.asarray(x, dtype=np.posit16).view(np.uint16))
 
 
 def ExtractBitsFromPosit32(x):
@@ -91,7 +91,7 @@ def SlowAppendPosit16ArrayToTensorProto(tensor_proto, proto_values):
 def FastAppendPosit16ArrayToTensorProto(tensor_proto, proto_values):
   fast_tensor_util.AppendPosit16ArrayToTensorProto(
       tensor_proto, np.asarray(
-          proto_values, dtype=dtypes.posit16.as_numpy_dtype).view(np.uint16))
+          proto_values, dtype=np.posit16).view(np.uint16))
 
 
 def SlowAppendPosit32ArrayToTensorProto(tensor_proto, proto_values):
@@ -109,7 +109,7 @@ if _FAST_TENSOR_UTIL_AVAILABLE:
   _NP_TO_APPEND_FN = {
       dtypes.bfloat16.as_numpy_dtype:
           FastAppendBFloat16ArrayToTensorProto,
-      dtypes.posit16.as_numpy_dtype:
+      np.posit16:
           FastAppendPosit16ArrayToTensorProto,
       np.posit32:
           FastAppendPosit32ArrayToTensorProto,
@@ -194,7 +194,7 @@ else:
 
   _NP_TO_APPEND_FN = {
       dtypes.bfloat16.as_numpy_dtype: SlowAppendBFloat16ArrayToTensorProto,
-      dtypes.posit16.as_numpy_dtype: SlowAppendPosit16ArrayToTensorProto,
+      np.posit16: SlowAppendPosit16ArrayToTensorProto,
       np.posit32: SlowAppendPosit32ArrayToTensorProto,
       np.float16: SlowAppendFloat16ArrayToTensorProto,
       np.float32: SlowAppendFloat32ArrayToTensorProto,
