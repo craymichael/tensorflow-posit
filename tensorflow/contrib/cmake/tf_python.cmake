@@ -484,6 +484,8 @@ set (pywrap_tensorflow_internal_src
     "${tensorflow_source_dir}/tensorflow/python/framework/python_op_gen_internal.cc"
     "${tensorflow_source_dir}/tensorflow/python/lib/core/bfloat16.h"
     "${tensorflow_source_dir}/tensorflow/python/lib/core/bfloat16.cc"
+    "${tensorflow_source_dir}/tensorflow/python/lib/core/posit8.h"
+    "${tensorflow_source_dir}/tensorflow/python/lib/core/posit8.cc"
     "${tensorflow_source_dir}/tensorflow/python/lib/core/posit16.h"
     "${tensorflow_source_dir}/tensorflow/python/lib/core/posit16.cc"
     "${tensorflow_source_dir}/tensorflow/python/lib/core/posit32.h"
