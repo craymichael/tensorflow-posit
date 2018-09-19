@@ -36,6 +36,7 @@ op {
         type: DT_DOUBLE
         type: DT_INT32
         type: DT_INT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -81,6 +82,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -130,6 +132,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -197,6 +200,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -226,6 +230,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -253,6 +258,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -290,6 +296,7 @@ op {
         type: DT_COMPLEX64
         type: DT_COMPLEX128
         type: DT_STRING
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -374,6 +381,7 @@ op {
         type: DT_UINT32
         type: DT_UINT64
         type: DT_VARIANT
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -450,6 +458,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -790,6 +799,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -863,6 +873,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -923,6 +934,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -1007,6 +1019,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -1092,6 +1105,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -1171,6 +1185,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -1253,6 +1268,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -1330,6 +1346,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -1411,6 +1428,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -1466,6 +1484,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -1530,6 +1549,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -1609,6 +1629,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -1677,6 +1698,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -1740,6 +1762,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -1817,6 +1840,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -1866,6 +1890,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -1916,6 +1941,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -1984,6 +2010,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -2101,6 +2128,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -2128,6 +2156,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -2233,6 +2262,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -2300,6 +2330,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -2368,6 +2399,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -2397,6 +2429,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -2424,6 +2457,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -2570,6 +2604,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -2630,6 +2665,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -2694,6 +2730,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -2758,6 +2795,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -3312,6 +3350,7 @@ op {
         type: DT_INT32
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -3646,6 +3685,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -3728,6 +3768,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -3962,6 +4003,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -3987,6 +4029,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -4058,6 +4101,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -4109,6 +4153,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -4164,6 +4209,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -4233,6 +4279,7 @@ op {
         type: DT_QINT16
         type: DT_QUINT16
         type: DT_QINT32
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -4260,6 +4307,7 @@ op {
         type: DT_QINT16
         type: DT_QUINT16
         type: DT_QINT32
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -5089,6 +5137,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -5114,6 +5163,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -5212,6 +5262,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -5661,6 +5712,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -5792,6 +5844,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -5871,6 +5924,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -5950,6 +6004,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -6025,6 +6080,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -6163,6 +6219,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -6301,6 +6358,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -6457,6 +6515,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -6484,6 +6543,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -6754,6 +6814,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -7649,6 +7710,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -7718,6 +7780,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -8677,6 +8740,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -8749,6 +8813,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -8821,6 +8886,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -9041,6 +9107,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -9070,6 +9137,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -9095,6 +9163,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -9132,6 +9201,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -9195,6 +9265,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -9258,6 +9329,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -9317,6 +9389,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -9491,6 +9564,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -9520,6 +9594,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -9847,6 +9922,7 @@ op {
         type: DT_STRING
         type: DT_BOOL
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -9873,6 +9949,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -9898,6 +9975,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -9940,6 +10018,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -9999,6 +10078,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -10090,6 +10170,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -10950,6 +11031,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -10987,6 +11069,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -11018,6 +11101,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -11492,6 +11576,7 @@ op {
         type: DT_HALF
         type: DT_BFLOAT16
         type: DT_FLOAT
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -11578,6 +11663,7 @@ op {
         type: DT_HALF
         type: DT_BFLOAT16
         type: DT_FLOAT
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -12017,6 +12103,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -12054,6 +12141,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -12236,6 +12324,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -12395,6 +12484,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -13164,6 +13254,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -13195,6 +13286,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -13283,6 +13375,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -13308,6 +13401,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -13333,6 +13427,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -13551,6 +13646,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -13629,6 +13725,7 @@ op {
         type: DT_HALF
         type: DT_BFLOAT16
         type: DT_FLOAT
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -13692,6 +13789,7 @@ op {
         type: DT_HALF
         type: DT_BFLOAT16
         type: DT_FLOAT
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -13844,6 +13942,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -13881,6 +13980,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -13906,6 +14006,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -13938,6 +14039,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -14060,6 +14162,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -14087,6 +14190,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -14139,6 +14243,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -14997,6 +15102,7 @@ op {
         type: DT_INT32
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -15352,6 +15458,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -15400,6 +15507,7 @@ op {
         type: DT_INT8
         type: DT_UINT16
         type: DT_QINT8
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -15495,6 +15603,7 @@ op {
         type: DT_HALF
         type: DT_BFLOAT16
         type: DT_FLOAT
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -15565,6 +15674,7 @@ op {
         type: DT_HALF
         type: DT_BFLOAT16
         type: DT_FLOAT
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -15581,6 +15691,7 @@ op {
         type: DT_HALF
         type: DT_BFLOAT16
         type: DT_FLOAT
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -15657,6 +15768,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -15736,6 +15848,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -15812,6 +15925,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -15884,6 +15998,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -15957,6 +16072,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -16032,6 +16148,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -16105,6 +16222,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -16148,6 +16266,7 @@ op {
         type: DT_INT8
         type: DT_UINT16
         type: DT_QINT8
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -16244,6 +16363,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -16275,6 +16395,7 @@ op {
         type: DT_DOUBLE
         type: DT_INT32
         type: DT_INT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -16325,6 +16446,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -16493,6 +16615,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -16537,6 +16660,7 @@ op {
         type: DT_DOUBLE
         type: DT_INT32
         type: DT_INT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -16654,6 +16778,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -16691,6 +16816,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -16743,6 +16869,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -17113,6 +17240,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -17313,6 +17441,7 @@ op {
         type: DT_STRING
         type: DT_BOOL
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -17358,6 +17487,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -17478,6 +17608,7 @@ op {
         type: DT_COMPLEX64
         type: DT_COMPLEX128
         type: DT_BOOL
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -18317,6 +18448,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -18855,6 +18987,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -19128,6 +19261,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -19286,6 +19420,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -19344,6 +19479,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -19395,6 +19531,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -21005,6 +21142,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -21485,6 +21623,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -21535,6 +21674,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -21637,6 +21777,7 @@ op {
         type: DT_DOUBLE
         type: DT_INT32
         type: DT_INT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -21987,6 +22128,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -22016,6 +22158,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -22047,6 +22190,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -22374,6 +22518,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -22407,6 +22552,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -22444,6 +22590,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -22481,6 +22628,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -22839,6 +22987,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -22875,6 +23024,7 @@ op {
         type: DT_BFLOAT16
         type: DT_HALF
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -23023,6 +23173,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -23089,6 +23240,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -23143,6 +23295,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -23220,6 +23373,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -23298,6 +23452,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -23371,6 +23526,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -23445,6 +23601,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -23515,6 +23672,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -23589,6 +23747,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -23639,6 +23798,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -23697,6 +23857,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -23770,6 +23931,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -23832,6 +23994,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -23890,6 +24053,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -23960,6 +24124,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -24073,6 +24238,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -24126,6 +24292,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -24179,6 +24346,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -24232,6 +24400,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -24285,6 +24454,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -24412,6 +24582,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -24515,6 +24686,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -24583,6 +24755,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -24674,6 +24847,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -24762,6 +24936,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -24846,6 +25021,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -24934,6 +25110,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -25006,6 +25183,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -25089,6 +25267,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -25161,6 +25340,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -25245,6 +25425,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -25551,6 +25732,7 @@ op {
         type: DT_COMPLEX64
         type: DT_COMPLEX128
         type: DT_STRING
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -25608,6 +25790,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -25680,6 +25863,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -25748,6 +25932,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -25779,6 +25964,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -26071,6 +26257,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -26165,6 +26352,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -26230,6 +26418,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -26284,6 +26473,7 @@ op {
         type: DT_DOUBLE
         type: DT_INT32
         type: DT_INT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -26338,6 +26528,7 @@ op {
         type: DT_DOUBLE
         type: DT_INT32
         type: DT_INT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -26403,6 +26594,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -26501,6 +26693,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -26564,6 +26757,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -26622,6 +26816,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -26729,6 +26924,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -26976,6 +27172,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -27028,6 +27225,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -27075,6 +27273,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -27127,6 +27326,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -27179,6 +27379,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -27296,6 +27497,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -27325,6 +27527,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -27699,6 +27902,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -27730,6 +27934,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -27759,6 +27964,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -27786,6 +27992,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -27813,6 +28020,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -28048,6 +28256,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -28081,6 +28290,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -28114,6 +28324,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -28151,6 +28362,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -28184,6 +28396,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -28221,6 +28434,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -28394,6 +28608,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -28449,6 +28664,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -28519,6 +28735,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -28541,6 +28758,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -28595,6 +28813,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -28665,6 +28884,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -28739,6 +28959,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -28837,6 +29058,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -28933,6 +29155,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -29024,6 +29247,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -29119,6 +29343,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -29197,6 +29422,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -29286,6 +29512,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -29363,6 +29590,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -29454,6 +29682,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -29550,6 +29779,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -29712,6 +29942,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -29762,6 +29993,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -29812,6 +30044,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -29932,6 +30165,7 @@ op {
       list {
         type: DT_FLOAT
         type: DT_BFLOAT16
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -29947,6 +30181,7 @@ op {
       list {
         type: DT_FLOAT
         type: DT_BFLOAT16
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -29999,6 +30234,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -30059,6 +30295,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -30116,6 +30353,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -30181,6 +30419,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -30566,6 +30805,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -30624,6 +30864,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -30739,6 +30980,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -30801,6 +31043,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -30871,6 +31114,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -30933,6 +31177,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -31027,6 +31272,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -31352,6 +31598,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -31383,6 +31630,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -31412,6 +31660,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -31445,6 +31694,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -31854,6 +32104,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -32534,6 +32785,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -32612,6 +32864,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -32919,6 +33172,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -32946,6 +33200,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -32977,6 +33232,7 @@ op {
         type: DT_DOUBLE
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -34556,6 +34812,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -34608,6 +34865,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -34677,6 +34935,7 @@ op {
         type: DT_INT64
         type: DT_COMPLEX64
         type: DT_COMPLEX128
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -34708,6 +34967,7 @@ op {
         type: DT_HALF
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -34747,6 +35007,7 @@ op {
         type: DT_BFLOAT16
         type: DT_FLOAT
         type: DT_DOUBLE
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -35235,6 +35496,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -35299,6 +35561,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -35368,6 +35631,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -35437,6 +35701,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -35675,6 +35940,7 @@ op {
         type: DT_UINT32
         type: DT_UINT64
         type: DT_BOOL
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -35876,6 +36142,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }
@@ -35965,6 +36232,7 @@ op {
         type: DT_HALF
         type: DT_UINT32
         type: DT_UINT64
+        type: DT_POSIT8
         type: DT_POSIT16
         type: DT_POSIT32
       }

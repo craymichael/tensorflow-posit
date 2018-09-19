@@ -188,7 +188,8 @@ REGISTER_OP("ScatterMin")
     .Input("indices: Tindices")
     .Input("updates: T")
     .Output("output_ref: Ref(T)")
-    .Attr("T: {half, bfloat16, float, double, int32, int64, posit16, posit32}")
+    .Attr("T: {half, bfloat16, float, double, int32, int64, "
+          "posit8, posit16, posit32}")
     .Attr("Tindices: {int32, int64}")
     .Attr("use_locking: bool = false")
     .SetShapeFn(ScatterUpdateShape);
@@ -198,7 +199,8 @@ REGISTER_OP("ScatterMax")
     .Input("indices: Tindices")
     .Input("updates: T")
     .Output("output_ref: Ref(T)")
-    .Attr("T: {half, bfloat16, float, double, int32, int64, posit16, posit32}")
+    .Attr("T: {half, bfloat16, float, double, int32, int64, "
+          "posit8, posit16, posit32}")
     .Attr("Tindices: {int32, int64}")
     .Attr("use_locking: bool = false")
     .SetShapeFn(ScatterUpdateShape);
