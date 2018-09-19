@@ -286,19 +286,6 @@ cc_library(
 )
 
 cc_library(
-    name = "posit16_lib",
-    srcs = ["lib/core/posit16.cc"],
-    hdrs = ["lib/core/posit16.h"],
-    deps = [
-        ":numpy_lib",
-        ":safe_ptr",
-        "//tensorflow/core:framework",
-        "//tensorflow/core:lib",
-        "//third_party/python_runtime:headers",
-    ],
-)
-
-cc_library(
     name = "ndarray_tensor_bridge",
     srcs = ["lib/core/ndarray_tensor_bridge.cc"],
     hdrs = ["lib/core/ndarray_tensor_bridge.h"],
@@ -307,7 +294,6 @@ cc_library(
     ],
     deps = [
         ":bfloat16_lib",
-        ":posit16_lib",
         ":numpy_lib",
         "//tensorflow/c:c_api",
         "//tensorflow/core:lib",
@@ -391,7 +377,6 @@ cc_library(
     ],
     deps = [
         ":bfloat16_lib",
-        ":posit16_lib",
         ":ndarray_tensor_bridge",
         ":numpy_lib",
         ":safe_ptr",
@@ -3797,7 +3782,6 @@ tf_py_wrap_cc(
         "grappler/model_analyzer.i",
         "grappler/tf_optimizer.i",
         "lib/core/bfloat16.i",
-        "lib/core/posit16.i",
         "lib/core/py_exception_registry.i",
         "lib/core/py_func.i",
         "lib/core/strings.i",
@@ -3824,7 +3808,6 @@ tf_py_wrap_cc(
     }),
     deps = [
         ":bfloat16_lib",
-        ":posit16_lib",
         ":cost_analyzer_lib",
         ":model_analyzer_lib",
         ":cpp_python_util",
@@ -4314,18 +4297,6 @@ py_test(
     name = "bfloat16_test",
     size = "small",
     srcs = ["lib/core/bfloat16_test.py"],
-    srcs_version = "PY2AND3",
-    deps = [
-        ":client_testlib",
-        ":lib",
-        ":pywrap_tensorflow",
-    ],
-)
-
-py_test(
-    name = "posit16_test",
-    size = "small",
-    srcs = ["lib/core/posit16_test.py"],
     srcs_version = "PY2AND3",
     deps = [
         ":client_testlib",
