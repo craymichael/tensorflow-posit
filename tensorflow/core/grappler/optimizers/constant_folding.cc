@@ -837,6 +837,9 @@ Status CreateConstantTensorAttrValue(DataType type, double value,
     case DT_BFLOAT16:
       t->add_half_val(static_cast<bfloat16>(value).value);
       break;
+    case DT_POSIT8:
+      t->add_uint32_val(static_cast<posit8>(value).value);
+      break;
     case DT_POSIT16:
       t->add_uint32_val(static_cast<posit16>(value).value);
       break;
@@ -1433,6 +1436,7 @@ bool ConstantFolding::IsOnes(const NodeDef& node) const {
     IS_ONES_CASE(DT_BOOL);
     IS_ONES_CASE(DT_HALF);
     IS_ONES_CASE(DT_BFLOAT16);
+    IS_ONES_CASE(DT_POSIT8);
     IS_ONES_CASE(DT_POSIT16);
     IS_ONES_CASE(DT_POSIT32);
     IS_ONES_CASE(DT_FLOAT);
@@ -1471,6 +1475,7 @@ bool ConstantFolding::IsZeros(const NodeDef& node) const {
     IS_ZEROS_CASE(DT_BOOL);
     IS_ZEROS_CASE(DT_HALF);
     IS_ZEROS_CASE(DT_BFLOAT16);
+    IS_ZEROS_CASE(DT_POSIT8);
     IS_ZEROS_CASE(DT_POSIT16);
     IS_ZEROS_CASE(DT_POSIT32);
     IS_ZEROS_CASE(DT_FLOAT);
