@@ -906,7 +906,7 @@ PHILOX_DEVICE_INLINE posit16 Uint16ToPosit16(uint16 x) {
   posit16 one;
   one.value = posit16::ONE_VALUE;
   posit16 result;
-  result.value = (x & 0x0FFF) | 0x4000;
+  result.value = (x & 0x0FFFU) | 0x4000U;
   result -= one;
   return result;
 }
@@ -915,7 +915,7 @@ PHILOX_DEVICE_INLINE posit32 Uint32ToPosit32(uint32 x) {
   posit32 one;
   one.value = posit32::ONE_VALUE;
   posit32 result;
-  result.value = (x & 0x07FFFFFF) | 0x40000000;
+  result.value = (x & 0x07FFFFFFU) | 0x40000000U;
   result -= one;
   return result;
 }
