@@ -16,7 +16,8 @@ limitations under the License.
 #include "tensorflow/core/kernels/cwise_ops_common.h"
 
 namespace tensorflow {
-REGISTER5(UnaryOp, CPU, "Rsqrt", functor::rsqrt, float, Eigen::half, double,
+REGISTER8(UnaryOp, CPU, "Rsqrt", functor::rsqrt, float, Eigen::half, double,
+          posit8, posit16, posit32,
           complex64, complex128);
 
 #if GOOGLE_CUDA
@@ -26,8 +27,9 @@ REGISTER3(UnaryOp, GPU, "Rsqrt", functor::rsqrt, float, Eigen::half, double);
 REGISTER2(UnaryOp, SYCL, "Rsqrt", functor::rsqrt, float, double);
 #endif  // TENSORFLOW_USE_SYCL
 
-REGISTER5(SimpleBinaryOp, CPU, "RsqrtGrad", functor::rsqrt_grad, float,
-          Eigen::half, double, complex64, complex128);
+REGISTER8(SimpleBinaryOp, CPU, "RsqrtGrad", functor::rsqrt_grad, float,
+          Eigen::half, double, complex64, complex128,
+          posit8, posit16, posit32);
 #if GOOGLE_CUDA
 REGISTER3(SimpleBinaryOp, GPU, "RsqrtGrad", functor::rsqrt_grad, float,
           Eigen::half, double);
