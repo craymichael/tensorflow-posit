@@ -866,11 +866,11 @@ def tf_workspace(path_prefix = "", tf_repo_name = ""):
     tf_http_archive(
         name = "softposit",
         urls = [
-            "https://storage.googleapis.com/posit-speedgo/softposit-0.4.1rc.tgz",
-            "https://s3-ap-southeast-1.amazonaws.com/posit-speedgo/softposit-0.4.1rc.tgz",
+            "https://storage.googleapis.com/posit-speedgo/softposit-0.4rc-68-gd75ff3e.tgz",
+            "https://s3-ap-southeast-1.amazonaws.com/posit-speedgo/softposit-0.4rc-68-gd75ff3e.tgz",
         ],
-        sha256 = "6e0b7f164d8308be82a0a0d0a4bf7739e2bb5213694160c6f9e4e4f58418bebd",
-        strip_prefix = "softposit-0.4.1rc",
+        sha256 = "37ae1c92fd906cb2e125928df9439f419fcf51ffb252df7964a3d275e49d4e07",
+        strip_prefix = "softposit-0.4rc-68-gd75ff3e",
         build_file = clean_dep("//third_party:softposit.BUILD"),
     )
 
