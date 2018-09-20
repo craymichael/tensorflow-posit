@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""TensorFlow is an open source machine learning framework for everyone.
+"""posit (unum type III) integrated TensorFlow is an open source machine learning framework for everyone.
 
 TensorFlow is an open source software library for high performance numerical
 computation. Its flexible architecture allows easy deployment of computation
