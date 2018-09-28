@@ -22,20 +22,19 @@ namespace tensorflow {
 typedef Eigen::ThreadPoolDevice CPUDevice;
 typedef Eigen::GpuDevice GPUDevice;
 
-std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
-GetCpuCastFromPosit16(DataType dst_dtype) {
+CastFunctorType GetCpuCastFromPosit16(DataType dst_dtype) {
   CURRY_TYPES3(CAST_CASE, CPUDevice, posit16);
   return nullptr;
 }
 
 #if GOOGLE_CUDA
-std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
-GetGpuCastFromPosit16(DataType dst_dtype) {
+CastFunctorType GetGpuCastFromPosit16(DataType dst_dtype) {
   if (dst_dtype == DT_FLOAT) {
-    return [](OpKernelContext* ctx, const Tensor& inp, Tensor* out) {
+    return [](OpKernelContext* ctx, const Tensor& inp, Tensor* out,
+              bool truncate) {
       functor::CastFunctor<GPUDevice, float, posit16> func;
       func(ctx->eigen_device<GPUDevice>(), out->flat<float>(),
-           inp.flat<posit16>());
+           inp.flat<posit16>(), truncate);
     };
   }
   return nullptr;

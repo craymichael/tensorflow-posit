@@ -102,14 +102,11 @@ CastFunctorType GetCpuCastFromComplex128(DataType dst_dtype);
 
 CastFunctorType GetCpuCastFromBfloat(DataType dst_dtype);
 
-std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
-GetCpuCastFromPosit8(DataType dst_dtype);
+CastFunctorType GetCpuCastFromPosit8(DataType dst_dtype);
 
-std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
-GetCpuCastFromPosit16(DataType dst_dtype);
+CastFunctorType GetCpuCastFromPosit16(DataType dst_dtype);
 
-std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
-GetCpuCastFromPosit32(DataType dst_dtype);
+CastFunctorType GetCpuCastFromPosit32(DataType dst_dtype);
 
 #if GOOGLE_CUDA
 // Same, for GPU.
@@ -143,14 +140,11 @@ CastFunctorType GetGpuCastFromComplex128(DataType dst_dtype);
 
 CastFunctorType GetGpuCastFromBfloat(DataType dst_dtype);
 
-std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
-GetGpuCastFromPosit8(DataType dst_dtype);
+CastFunctorType GetGpuCastFromPosit8(DataType dst_dtype);
 
-std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
-GetGpuCastFromPosit16(DataType dst_dtype);
+CastFunctorType GetGpuCastFromPosit16(DataType dst_dtype);
 
-std::function<void(OpKernelContext*, const Tensor&, Tensor*)>
-GetGpuCastFromPosit32(DataType dst_dtype);
+CastFunctorType GetGpuCastFromPosit32(DataType dst_dtype);
 
 #endif  // GOOGLE_CUDA
 
